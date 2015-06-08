@@ -1,0 +1,3655 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PGK.Extensions</name>
+    </assembly>
+    <members>
+        <member name="T:DirectoryInfoExtensions">
+            <summary>
+            	Extension methods for the DirectoryInfo class
+            </summary>
+        </member>
+        <member name="M:DirectoryInfoExtensions.GetFiles(System.IO.DirectoryInfo,System.String[])">
+            <summary>
+            	Gets all files in the directory matching one of the several (!) supplied patterns (instead of just one in the regular implementation).
+            </summary>
+            <param name = "directory">The directory.</param>
+            <param name = "patterns">The patterns.</param>
+            <returns>The matching files</returns>
+            <remarks>
+            	This methods is quite perfect to be used in conjunction with the newly created FileInfo-Array extension methods.
+            </remarks>
+            <example>
+            	<code>
+            		var files = directory.GetFiles("*.txt", "*.xml");
+            	</code>
+            </example>
+        </member>
+        <member name="M:DirectoryInfoExtensions.FindFileRecursive(System.IO.DirectoryInfo,System.String)">
+            <summary>
+            	Searches the provided directory recursively and returns the first file matching the provided pattern.
+            </summary>
+            <param name = "directory">The directory.</param>
+            <param name = "pattern">The pattern.</param>
+            <returns>The found file</returns>
+            <example>
+            	<code>
+            		var directory = new DirectoryInfo(@"c:\");
+            		var file = directory.FindFileRecursive("win.ini");
+            	</code>
+            </example>
+        </member>
+        <member name="M:DirectoryInfoExtensions.FindFileRecursive(System.IO.DirectoryInfo,System.Func{System.IO.FileInfo,System.Boolean})">
+            <summary>
+            	Searches the provided directory recursively and returns the first file matching to the provided predicate.
+            </summary>
+            <param name = "directory">The directory.</param>
+            <param name = "predicate">The predicate.</param>
+            <returns>The found file</returns>
+            <example>
+            	<code>
+            		var directory = new DirectoryInfo(@"c:\");
+            		var file = directory.FindFileRecursive(f => f.Extension == ".ini");
+            	</code>
+            </example>
+        </member>
+        <member name="M:DirectoryInfoExtensions.FindFilesRecursive(System.IO.DirectoryInfo,System.String)">
+            <summary>
+            	Searches the provided directory recursively and returns the all files matching the provided pattern.
+            </summary>
+            <param name = "directory">The directory.</param>
+            <param name = "pattern">The pattern.</param>
+            <remarks>
+            	This methods is quite perfect to be used in conjunction with the newly created FileInfo-Array extension methods.
+            </remarks>
+            <returns>The found files</returns>
+            <example>
+            	<code>
+            		var directory = new DirectoryInfo(@"c:\");
+            		var files = directory.FindFilesRecursive("*.ini");
+            	</code>
+            </example>
+        </member>
+        <member name="M:DirectoryInfoExtensions.FindFilesRecursive(System.IO.DirectoryInfo,System.Func{System.IO.FileInfo,System.Boolean})">
+            <summary>
+            	Searches the provided directory recursively and returns the all files matching to the provided predicate.
+            </summary>
+            <param name = "directory">The directory.</param>
+            <param name = "predicate">The predicate.</param>
+            <returns>The found files</returns>
+            <remarks>
+            	This methods is quite perfect to be used in conjunction with the newly created FileInfo-Array extension methods.
+            </remarks>
+            <example>
+            	<code>
+            		var directory = new DirectoryInfo(@"c:\");
+            		var files = directory.FindFilesRecursive(f => f.Extension == ".ini");
+            	</code>
+            </example>
+        </member>
+        <member name="T:ValueTypeExtensions">
+            <summary>
+            	Extension methods for all kind of value types (structs)
+            </summary>
+        </member>
+        <member name="M:ValueTypeExtensions.IsEmpty``1(``0)">
+            <summary>
+            	Determines whether the specified value is empty.
+            </summary>
+            <typeparam name = "T"></typeparam>
+            <param name = "value">The value.</param>
+            <returns>
+            	<c>true</c> if the specified value is empty; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ValueTypeExtensions.IsNotEmpty``1(``0)">
+            <summary>
+            	Determines whether the specified value is not empty.
+            </summary>
+            <typeparam name = "T"></typeparam>
+            <param name = "value">The value.</param>
+            <returns>
+            	<c>true</c> if the specified value is not empty; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ValueTypeExtensions.ToNullable``1(``0)">
+            <summary>
+            	Converts the specified value to a corresponding nullable type
+            </summary>
+            <typeparam name = "T"></typeparam>
+            <param name = "value">The value.</param>
+            <returns>The nullable type</returns>
+        </member>
+        <member name="T:IntExtensions">
+            <summary>
+            	Extension methods for the string data type
+            </summary>
+        </member>
+        <member name="M:IntExtensions.Times(System.Int32,System.Action)">
+            <summary>
+            	Performs the specified action n times based on the underlying int value.
+            </summary>
+            <param name = "value">The value.</param>
+            <param name = "action">The action.</param>
+        </member>
+        <member name="M:IntExtensions.Times(System.Int32,System.Action{System.Int32})">
+            <summary>
+            	Performs the specified action n times based on the underlying int value.
+            </summary>
+            <param name = "value">The value.</param>
+            <param name = "action">The action.</param>
+        </member>
+        <member name="M:IntExtensions.IsEven(System.Int32)">
+            <summary>
+            	Determines whether the value is even
+            </summary>
+            <param name = "value">The Value</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:IntExtensions.IsOdd(System.Int32)">
+            <summary>
+            	Determines whether the value is odd
+            </summary>
+            <param name = "value">The Value</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:IntExtensions.InRange(System.Int32,System.Int32,System.Int32)">
+            <summary>Checks whether the value is in range</summary>
+            <param name="value">The Value</param>
+            <param name="minValue">The minimum value</param>
+            <param name="maxValue">The maximum value</param>
+        </member>
+        <member name="M:IntExtensions.InRange(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>Checks whether the value is in range or returns the default value</summary>
+            <param name="value">The Value</param>
+            <param name="minValue">The minimum value</param>
+            <param name="maxValue">The maximum value</param>
+            <param name="defaultValue">The default value</param>
+        </member>
+        <member name="M:IntExtensions.IsPrime(System.Int32)">
+            <summary>
+            A prime number (or a prime) is a natural number that has exactly two distinct natural number divisors: 1 and itself.
+            </summary>
+            <param name="candidate">Object value</param>
+            <returns>Returns true if the value is a prime number.</returns>
+        </member>
+        <member name="T:IConverter`1">
+            <summary>
+            	Generic converter interface used to allow extension methods to be applied.
+            </summary>
+            <typeparam name = "T"></typeparam>
+        </member>
+        <member name="P:IConverter`1.Value">
+            <summary>
+            	Gets the internal value to be converted.
+            </summary>
+            <value>The value.</value>
+        </member>
+        <member name="T:EnumerableExtensions">
+            <summary>
+            	Extension methods for all kinds of (typed) enumerable data (Array, List, ...)
+            </summary>
+        </member>
+        <member name="M:EnumerableExtensions.ConvertList``2(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            	Converts all items of a list and returns them as enumerable.
+            </summary>
+            <typeparam name = "TSource">The source data type</typeparam>
+            <typeparam name = "TTarget">The target data type</typeparam>
+            <param name = "source">The source data.</param>
+            <returns>The converted data</returns>
+            <example>
+            	var values = new[] { "1", "2", "3" };
+            	values.ConvertList&lt;string, int&gt;().ForEach(Console.WriteLine);
+            </example>
+        </member>
+        <member name="M:EnumerableExtensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            	Performs an action for each item in the enumerable
+            </summary>
+            <typeparam name = "T">The enumerable data type</typeparam>
+            <param name = "values">The data values.</param>
+            <param name = "action">The action to be performed.</param>
+            <example>
+            	var values = new[] { "1", "2", "3" };
+            	values.ConvertList&lt;string, int&gt;().ForEach(Console.WriteLine);
+            </example>
+            <remarks>
+            	This method was intended to return the passed values to provide method chaining. Howver due to defered execution the compiler would actually never run the entire code at all.
+            </remarks>
+        </member>
+        <member name="M:EnumerableExtensions.IgnoreNulls``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            	Returns enumerable object based on target, which does not contains null references.
+            	If target is null reference, returns empty enumerable object.
+            </summary>
+            <typeparam name = "T">Type of items in target.</typeparam>
+            <param name = "target">Target enumerable object. Can be null.</param>
+            <example>
+            	object[] items = null;
+            	foreach(var item in items.NotNull()){
+            	// result of items.NotNull() is empty but not null enumerable
+            	}
+             
+            	object[] items = new object[]{ null, "Hello World!", null, "Good bye!" };
+            	foreach(var item in items.NotNull()){
+            	// result of items.NotNull() is enumerable with two strings
+            	}
+            </example>
+            <remarks>
+            	Contributed by tencokacistromy, http://www.codeplex.com/site/users/view/tencokacistromy
+            </remarks>
+        </member>
+        <member name="M:EnumerableExtensions.MaxItem``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},``1@)">
+            <summary>
+            	Returns the maximum item based on a provided selector.
+            </summary>
+            <typeparam name = "TItem">The item type</typeparam>
+            <typeparam name = "TValue">The value item</typeparam>
+            <param name = "items">The items.</param>
+            <param name = "selector">The selector.</param>
+            <param name = "maxValue">The max value as output parameter.</param>
+            <returns>The maximum item</returns>
+            <example>
+            	<code>
+            		int age;
+            		var oldestPerson = persons.MaxItem(p =&gt; p.Age, out age);
+            	</code>
+            </example>
+        </member>
+        <member name="M:EnumerableExtensions.MaxItem``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            	Returns the maximum item based on a provided selector.
+            </summary>
+            <typeparam name = "TItem">The item type</typeparam>
+            <typeparam name = "TValue">The value item</typeparam>
+            <param name = "items">The items.</param>
+            <param name = "selector">The selector.</param>
+            <returns>The maximum item</returns>
+            <example>
+            	<code>
+            		var oldestPerson = persons.MaxItem(p =&gt; p.Age);
+            	</code>
+            </example>
+        </member>
+        <member name="M:EnumerableExtensions.MinItem``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},``1@)">
+            <summary>
+            	Returns the minimum item based on a provided selector.
+            </summary>
+            <typeparam name = "TItem">The item type</typeparam>
+            <typeparam name = "TValue">The value item</typeparam>
+            <param name = "items">The items.</param>
+            <param name = "selector">The selector.</param>
+            <param name = "minValue">The min value as output parameter.</param>
+            <returns>The minimum item</returns>
+            <example>
+            	<code>
+            		int age;
+            		var youngestPerson = persons.MinItem(p =&gt; p.Age, out age);
+            	</code>
+            </example>
+        </member>
+        <member name="M:EnumerableExtensions.MinItem``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            	Returns the minimum item based on a provided selector.
+            </summary>
+            <typeparam name = "TItem">The item type</typeparam>
+            <typeparam name = "TValue">The value item</typeparam>
+            <param name = "items">The items.</param>
+            <param name = "selector">The selector.</param>
+            <returns>The minimum item</returns>
+            <example>
+            	<code>
+            		var youngestPerson = persons.MinItem(p =&gt; p.Age);
+            	</code>
+            </example>
+        </member>
+        <member name="M:EnumerableExtensions.Distinct``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            	Get Distinct
+            </summary>
+            <param name = "source"></param>
+            <param name = "expression"></param>
+            <typeparam name = "T"></typeparam>
+            <typeparam name = "TKey"></typeparam>
+            <returns></returns>
+             <remarks>
+             	Contributed by Michael T, http://about.me/MichaelTran
+             </remarks>
+        </member>
+        <member name="M:EnumerableExtensions.RemoveAll``1(System.Collections.Generic.IEnumerable{``0},System.Predicate{``0})">
+            <summary>
+            	Remove item from a list
+            </summary>
+            <param name = "source"></param>
+            <param name = "predicate"></param>
+            <typeparam name = "T"></typeparam>
+            <returns></returns>
+             <remarks>
+             	Contributed by Michael T, http://about.me/MichaelTran
+             </remarks>
+        </member>
+        <member name="M:EnumerableExtensions.ToCSV``1(System.Collections.Generic.IEnumerable{``0},System.Char)">
+            <summary>
+             Turn the list of objects to a string of Common Seperated Value
+            </summary>
+            <param name="source"></param>
+            <param name="separator"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+             <example>
+             	<code>
+             		var values = new[] { 1, 2, 3, 4, 5 };
+            			string csv = values.ToCSV(';');
+             	</code>
+             </example>
+             <remarks>
+             	Contributed by Moses, http://mosesofegypt.net
+             </remarks>
+        </member>
+        <member name="M:EnumerableExtensions.ToCSV``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+             Turn the list of objects to a string of Common Seperated Value
+            </summary>
+            <param name="source"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+             <example>
+             	<code>
+             		var values = new[] {1, 2, 3, 4, 5};
+            			string csv = values.ToCSV();
+             	</code>
+             </example>
+             <remarks>
+             	Contributed by Moses, http://mosesofegypt.net
+             </remarks>
+        </member>
+        <member name="T:StreamExtensions">
+            <summary>
+            	Extension methods any kind of streams
+            </summary>
+        </member>
+        <member name="M:StreamExtensions.GetReader(System.IO.Stream)">
+            <summary>
+            	Opens a StreamReader using the default encoding.
+            </summary>
+            <param name = "stream">The stream.</param>
+            <returns>The stream reader</returns>
+        </member>
+        <member name="M:StreamExtensions.GetReader(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            	Opens a StreamReader using the specified encoding.
+            </summary>
+            <param name = "stream">The stream.</param>
+            <param name = "encoding">The encoding.</param>
+            <returns>The stream reader</returns>
+        </member>
+        <member name="M:StreamExtensions.GetWriter(System.IO.Stream)">
+            <summary>
+            	Opens a StreamWriter using the default encoding.
+            </summary>
+            <param name = "stream">The stream.</param>
+            <returns>The stream writer</returns>
+        </member>
+        <member name="M:StreamExtensions.GetWriter(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            	Opens a StreamWriter using the specified encoding.
+            </summary>
+            <param name = "stream">The stream.</param>
+            <param name = "encoding">The encoding.</param>
+            <returns>The stream writer</returns>
+        </member>
+        <member name="M:StreamExtensions.ReadToEnd(System.IO.Stream)">
+            <summary>
+            	Reads all text from the stream using the default encoding.
+            </summary>
+            <param name = "stream">The stream.</param>
+            <returns>The result string.</returns>
+        </member>
+        <member name="M:StreamExtensions.ReadToEnd(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            	Reads all text from the stream using a specified encoding.
+            </summary>
+            <param name = "stream">The stream.</param>
+            <param name = "encoding">The encoding.</param>
+            <returns>The result string.</returns>
+        </member>
+        <member name="M:StreamExtensions.SeekToBegin(System.IO.Stream)">
+            <summary>
+            	Sets the stream cursor to the beginning of the stream.
+            </summary>
+            <param name = "stream">The stream.</param>
+            <returns>The stream</returns>
+        </member>
+        <member name="M:StreamExtensions.SeekToEnd(System.IO.Stream)">
+            <summary>
+            	Sets the stream cursor to the end of the stream.
+            </summary>
+            <param name = "stream">The stream.</param>
+            <returns>The stream</returns>
+        </member>
+        <member name="M:StreamExtensions.CopyTo(System.IO.Stream,System.IO.Stream)">
+            <summary>
+            	Copies one stream into a another one.
+            </summary>
+            <param name = "stream">The source stream.</param>
+            <param name = "targetStream">The target stream.</param>
+            <returns>The source stream.</returns>
+        </member>
+        <member name="M:StreamExtensions.CopyTo(System.IO.Stream,System.IO.Stream,System.Int32)">
+            <summary>
+            	Copies one stream into a another one.
+            </summary>
+            <param name = "stream">The source stream.</param>
+            <param name = "targetStream">The target stream.</param>
+            <param name = "bufferSize">The buffer size used to read / write.</param>
+            <returns>The source stream.</returns>
+        </member>
+        <member name="M:StreamExtensions.CopyToMemory(System.IO.Stream)">
+            <summary>
+            	Copies any stream into a local MemoryStream
+            </summary>
+            <param name = "stream">The source stream.</param>
+            <returns>The copied memory stream.</returns>
+        </member>
+        <member name="M:StreamExtensions.ReadAllBytes(System.IO.Stream)">
+            <summary>
+            	Reads the entire stream and returns a byte array.
+            </summary>
+            <param name = "stream">The stream.</param>
+            <returns>The byte array</returns>
+            <remarks>
+            	Thanks to EsbenCarlsen  for providing an update to this method.
+            </remarks>
+        </member>
+        <member name="M:StreamExtensions.ReadFixedBuffersize(System.IO.Stream,System.Int32)">
+            <summary>
+            	Reads a fixed number of bytes.
+            </summary>
+            <param name = "stream">The stream to read from</param>
+            <param name = "bufsize">The number of bytes to read.</param>
+            <returns>the read byte[]</returns>
+        </member>
+        <member name="M:StreamExtensions.Write(System.IO.Stream,System.Byte[])">
+            <summary>
+            	Writes all passed bytes to the specified stream.
+            </summary>
+            <param name = "stream">The stream.</param>
+            <param name = "bytes">The byte array / buffer.</param>
+        </member>
+        <member name="T:FileInfoExtensions">
+            <summary>
+            	Extension methods for the FileInfo and FileInfo-Array classes
+            </summary>
+        </member>
+        <member name="M:FileInfoExtensions.Rename(System.IO.FileInfo,System.String)">
+            <summary>
+            	Renames a file.
+            </summary>
+            <param name = "file">The file.</param>
+            <param name = "newName">The new name.</param>
+            <returns>The renamed file</returns>
+            <example>
+            	<code>
+            		var file = new FileInfo(@"c:\test.txt");
+            		file.Rename("test2.txt");
+            	</code>
+            </example>
+        </member>
+        <member name="M:FileInfoExtensions.RenameFileWithoutExtension(System.IO.FileInfo,System.String)">
+            <summary>
+            	Renames a without changing its extension.
+            </summary>
+            <param name = "file">The file.</param>
+            <param name = "newName">The new name.</param>
+            <returns>The renamed file</returns>
+            <example>
+            	<code>
+            		var file = new FileInfo(@"c:\test.txt");
+            		file.RenameFileWithoutExtension("test3");
+            	</code>
+            </example>
+        </member>
+        <member name="M:FileInfoExtensions.ChangeExtension(System.IO.FileInfo,System.String)">
+            <summary>
+            	Changes the files extension.
+            </summary>
+            <param name = "file">The file.</param>
+            <param name = "newExtension">The new extension.</param>
+            <returns>The renamed file</returns>
+            <example>
+            	<code>
+            		var file = new FileInfo(@"c:\test.txt");
+            		file.ChangeExtension("xml");
+            	</code>
+            </example>
+        </member>
+        <member name="M:FileInfoExtensions.ChangeExtensions(System.IO.FileInfo[],System.String)">
+            <summary>
+            	Changes the extensions of several files at once.
+            </summary>
+            <param name = "files">The files.</param>
+            <param name = "newExtension">The new extension.</param>
+            <returns>The renamed files</returns>
+            <example>
+            	<code>
+            		var files = directory.GetFiles("*.txt", "*.xml");
+            		files.ChangeExtensions("tmp");
+            	</code>
+            </example>
+        </member>
+        <member name="M:FileInfoExtensions.Delete(System.IO.FileInfo[])">
+            <summary>
+            	Deletes several files at once and consolidates any exceptions.
+            </summary>
+            <param name = "files">The files.</param>
+            <example>
+            	<code>
+            		var files = directory.GetFiles("*.txt", "*.xml");
+            		files.Delete()
+            	</code>
+            </example>
+        </member>
+        <member name="M:FileInfoExtensions.Delete(System.IO.FileInfo[],System.Boolean)">
+            <summary>
+            	Deletes several files at once and optionally consolidates any exceptions.
+            </summary>
+            <param name = "files">The files.</param>
+            <param name = "consolidateExceptions">if set to <c>true</c> exceptions are consolidated and the processing is not interrupted.</param>
+            <example>
+            	<code>
+            		var files = directory.GetFiles("*.txt", "*.xml");
+            		files.Delete()
+            	</code>
+            </example>
+        </member>
+        <member name="M:FileInfoExtensions.CopyTo(System.IO.FileInfo[],System.String)">
+            <summary>
+            	Copies several files to a new folder at once and consolidates any exceptions.
+            </summary>
+            <param name = "files">The files.</param>
+            <param name = "targetPath">The target path.</param>
+            <returns>The newly created file copies</returns>
+            <example>
+            	<code>
+            		var files = directory.GetFiles("*.txt", "*.xml");
+            		var copiedFiles = files.CopyTo(@"c:\temp\");
+            	</code>
+            </example>
+        </member>
+        <member name="M:FileInfoExtensions.CopyTo(System.IO.FileInfo[],System.String,System.Boolean)">
+            <summary>
+            	Copies several files to a new folder at once and optionally consolidates any exceptions.
+            </summary>
+            <param name = "files">The files.</param>
+            <param name = "targetPath">The target path.</param>
+            <param name = "consolidateExceptions">if set to <c>true</c> exceptions are consolidated and the processing is not interrupted.</param>
+            <returns>The newly created file copies</returns>
+            <example>
+            	<code>
+            		var files = directory.GetFiles("*.txt", "*.xml");
+            		var copiedFiles = files.CopyTo(@"c:\temp\");
+            	</code>
+            </example>
+        </member>
+        <member name="M:FileInfoExtensions.MoveTo(System.IO.FileInfo[],System.String)">
+            <summary>
+            	Moves several files to a new folder at once and optionally consolidates any exceptions.
+            </summary>
+            <param name = "files">The files.</param>
+            <param name = "targetPath">The target path.</param>
+            <returns>The moved files</returns>
+            <example>
+            	<code>
+            		var files = directory.GetFiles("*.txt", "*.xml");
+            		files.MoveTo(@"c:\temp\");
+            	</code>
+            </example>
+        </member>
+        <member name="M:FileInfoExtensions.MoveTo(System.IO.FileInfo[],System.String,System.Boolean)">
+            <summary>
+            	Movies several files to a new folder at once and optionally consolidates any exceptions.
+            </summary>
+            <param name = "files">The files.</param>
+            <param name = "targetPath">The target path.</param>
+            <param name = "consolidateExceptions">if set to <c>true</c> exceptions are consolidated and the processing is not interrupted.</param>
+            <returns>The moved files</returns>
+            <example>
+            	<code>
+            		var files = directory.GetFiles("*.txt", "*.xml");
+            		files.MoveTo(@"c:\temp\");
+            	</code>
+            </example>
+        </member>
+        <member name="M:FileInfoExtensions.SetAttributes(System.IO.FileInfo[],System.IO.FileAttributes)">
+            <summary>
+            	Sets file attributes for several files at once
+            </summary>
+            <param name = "files">The files.</param>
+            <param name = "attributes">The attributes to be set.</param>
+            <returns>The changed files</returns>
+            <example>
+            	<code>
+            		var files = directory.GetFiles("*.txt", "*.xml");
+            		files.SetAttributes(FileAttributes.Archive);
+            	</code>
+            </example>
+        </member>
+        <member name="M:FileInfoExtensions.SetAttributesAdditive(System.IO.FileInfo[],System.IO.FileAttributes)">
+            <summary>
+            	Appends file attributes for several files at once (additive to any existing attributes)
+            </summary>
+            <param name = "files">The files.</param>
+            <param name = "attributes">The attributes to be set.</param>
+            <returns>The changed files</returns>
+            <example>
+            	<code>
+            		var files = directory.GetFiles("*.txt", "*.xml");
+            		files.SetAttributesAdditive(FileAttributes.Archive);
+            	</code>
+            </example>
+        </member>
+        <member name="T:StringExtensions">
+            <summary>
+            	Extension methods for the string data type
+            </summary>
+        </member>
+        <member name="M:StringExtensions.IsEmpty(System.String)">
+            <summary>
+            	Determines whether the specified string is null or empty.
+            </summary>
+            <param name = "value">The string value to check.</param>
+        </member>
+        <member name="M:StringExtensions.IsNotEmpty(System.String)">
+            <summary>
+            	Determines whether the specified string is not null or empty.
+            </summary>
+            <param name = "value">The string value to check.</param>
+        </member>
+        <member name="M:StringExtensions.IfEmpty(System.String,System.String)">
+            <summary>
+            	Checks whether the string is empty and returns a default value in case.
+            </summary>
+            <param name = "value">The string to check.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>Either the string or the default value.</returns>
+        </member>
+        <member name="M:StringExtensions.FormatWith(System.String,System.Object[])">
+            <summary>
+            	Formats the value with the parameters using string.Format.
+            </summary>
+            <param name = "value">The input string.</param>
+            <param name = "parameters">The parameters.</param>
+            <returns></returns>
+        </member>
+        <member name="M:StringExtensions.TrimToMaxLength(System.String,System.Int32)">
+            <summary>
+            	Trims the text to a provided maximum length.
+            </summary>
+            <param name = "value">The input string.</param>
+            <param name = "maxLength">Maximum length.</param>
+            <returns></returns>
+            <remarks>
+            	Proposed by Rene Schulte
+            </remarks>
+        </member>
+        <member name="M:StringExtensions.TrimToMaxLength(System.String,System.Int32,System.String)">
+            <summary>
+            	Trims the text to a provided maximum length and adds a suffix if required.
+            </summary>
+            <param name = "value">The input string.</param>
+            <param name = "maxLength">Maximum length.</param>
+            <param name = "suffix">The suffix.</param>
+            <returns></returns>
+            <remarks>
+            	Proposed by Rene Schulte
+            </remarks>
+        </member>
+        <member name="M:StringExtensions.Contains(System.String,System.String,System.StringComparison)">
+            <summary>
+            	Determines whether the comparison value strig is contained within the input value string
+            </summary>
+            <param name = "inputValue">The input value.</param>
+            <param name = "comparisonValue">The comparison value.</param>
+            <param name = "comparisonType">Type of the comparison to allow case sensitive or insensitive comparison.</param>
+            <returns>
+            	<c>true</c> if input value contains the specified value, otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:StringExtensions.ToXDocument(System.String)">
+            <summary>
+            	Loads the string into a LINQ to XML XDocument
+            </summary>
+            <param name = "xml">The XML string.</param>
+            <returns>The XML document object model (XDocument)</returns>
+        </member>
+        <member name="M:StringExtensions.ToXmlDOM(System.String)">
+            <summary>
+            	Loads the string into a XML DOM object (XmlDocument)
+            </summary>
+            <param name = "xml">The XML string.</param>
+            <returns>The XML document object model (XmlDocument)</returns>
+        </member>
+        <member name="M:StringExtensions.ToXPath(System.String)">
+            <summary>
+            	Loads the string into a XML XPath DOM (XPathDocument)
+            </summary>
+            <param name = "xml">The XML string.</param>
+            <returns>The XML XPath document object model (XPathNavigator)</returns>
+        </member>
+        <member name="M:StringExtensions.ToXElement(System.String)">
+            <summary>
+                Loads the string into a LINQ to XML XElement
+            </summary>
+            <param name = "xml">The XML string.</param>
+            <returns>The XML element object model (XElement)</returns>
+        </member>
+        <member name="M:StringExtensions.Reverse(System.String)">
+            <summary>
+            	Reverses / mirrors a string.
+            </summary>
+            <param name = "value">The string to be reversed.</param>
+            <returns>The reversed string</returns>
+        </member>
+        <member name="M:StringExtensions.EnsureStartsWith(System.String,System.String)">
+            <summary>
+            	Ensures that a string starts with a given prefix.
+            </summary>
+            <param name = "value">The string value to check.</param>
+            <param name = "prefix">The prefix value to check for.</param>
+            <returns>The string value including the prefix</returns>
+            <example>
+            	<code>
+            		var extension = "txt";
+            		var fileName = string.Concat(file.Name, extension.EnsureStartsWith("."));
+            	</code>
+            </example>
+        </member>
+        <member name="M:StringExtensions.EnsureEndsWith(System.String,System.String)">
+            <summary>
+            	Ensures that a string ends with a given suffix.
+            </summary>
+            <param name = "value">The string value to check.</param>
+            <param name = "suffix">The suffix value to check for.</param>
+            <returns>The string value including the suffix</returns>
+            <example>
+            	<code>
+            		var url = "http://www.pgk.de";
+            		url = url.EnsureEndsWith("/"));
+            	</code>
+            </example>
+        </member>
+        <member name="M:StringExtensions.Repeat(System.String,System.Int32)">
+            <summary>
+            	Repeats the specified string value as provided by the repeat count.
+            </summary>
+            <param name = "value">The original string.</param>
+            <param name = "repeatCount">The repeat count.</param>
+            <returns>The repeated string</returns>
+        </member>
+        <member name="M:StringExtensions.IsNumeric(System.String)">
+            <summary>
+            	Tests whether the contents of a string is a numeric value
+            </summary>
+            <param name = "value">String to check</param>
+            <returns>
+            	Boolean indicating whether or not the string contents are numeric
+            </returns>
+            <remarks>
+            	Contributed by Kenneth Scott
+            </remarks>
+        </member>
+        <member name="M:StringExtensions.ExtractDigits(System.String)">
+            <summary>
+            	Extracts all digits from a string.
+            </summary>
+            <param name = "value">String containing digits to extract</param>
+            <returns>
+            	All digits contained within the input string
+            </returns>
+            <remarks>
+            	Contributed by Kenneth Scott
+            </remarks>
+        </member>
+        <member name="M:StringExtensions.ConcatWith(System.String,System.String[])">
+            <summary>
+            	Concatenates the specified string value with the passed additional strings.
+            </summary>
+            <param name = "value">The original value.</param>
+            <param name = "values">The additional string values to be concatenated.</param>
+            <returns>The concatenated string.</returns>
+        </member>
+        <member name="M:StringExtensions.ToGuid(System.String)">
+            <summary>
+            	Convert the provided string to a Guid value.
+            </summary>
+            <param name = "value">The original string value.</param>
+            <returns>The Guid</returns>
+        </member>
+        <member name="M:StringExtensions.ToGuidSave(System.String)">
+            <summary>
+            	Convert the provided string to a Guid value and returns Guid.Empty if conversion fails.
+            </summary>
+            <param name = "value">The original string value.</param>
+            <returns>The Guid</returns>
+        </member>
+        <member name="M:StringExtensions.ToGuidSave(System.String,System.Guid)">
+            <summary>
+            	Convert the provided string to a Guid value and returns the provided default value if the conversion fails.
+            </summary>
+            <param name = "value">The original string value.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The Guid</returns>
+        </member>
+        <member name="M:StringExtensions.GetBefore(System.String,System.String)">
+            <summary>
+            	Gets the string before the given string parameter.
+            </summary>
+            <param name = "value">The default value.</param>
+            <param name = "x">The given string parameter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:StringExtensions.GetBetween(System.String,System.String,System.String)">
+            <summary>
+            	Gets the string between the given string parameters.
+            </summary>
+            <param name = "value">The default value.</param>
+            <param name = "x">The left string parameter.</param>
+            <param name = "y">The right string parameter</param>
+            <returns></returns>
+        </member>
+        <member name="M:StringExtensions.GetAfter(System.String,System.String)">
+            <summary>
+            	Gets the string after the given string parameter.
+            </summary>
+            <param name = "value">The default value.</param>
+            <param name = "x">The given string parameter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:StringExtensions.Join``1(System.String,``0[])">
+            <summary>
+            	A generic version of System.String.Join()
+            </summary>
+            <typeparam name = "T">
+            	The type of the array to join
+            </typeparam>
+            <param name = "separator">
+            	The separator to appear between each element
+            </param>
+            <param name = "value">
+            	An array of values
+            </param>
+            <returns>
+            	The join.
+            </returns>
+            <remarks>
+            	Contributed by Michael T, http://about.me/MichaelTran
+            </remarks>
+        </member>
+        <member name="M:StringExtensions.Remove(System.String,System.Char[])">
+            <summary>
+            	Remove any instance of the given character from the current string.
+            </summary>
+            <param name = "value">
+            	The input.
+            </param>
+            <param name = "removeCharc">
+            	The remove char.
+            </param>
+            <remarks>
+            	Contributed by Michael T, http://about.me/MichaelTran
+            </remarks>
+        </member>
+        <member name="M:StringExtensions.Remove(System.String,System.String[])">
+            <summary>
+            Remove any instance of the given string pattern from the current string.
+            </summary>
+            <param name="value">The input.</param>
+            <param name="strings">The strings.</param>
+            <returns></returns>
+            <remarks>
+            Contributed by Michael T, http://about.me/MichaelTran
+            </remarks>
+        </member>
+        <member name="M:StringExtensions.IsEmptyOrWhiteSpace(System.String)">
+            <summary>Finds out if the specified string contains null, empty or consists only of white-space characters</summary>
+            <param name = "value">The input string</param>
+        </member>
+        <member name="M:StringExtensions.IsNotEmptyOrWhiteSpace(System.String)">
+            <summary>Determines whether the specified string is not null, empty or consists only of white-space characters</summary>
+            <param name = "value">The string value to check</param>
+        </member>
+        <member name="M:StringExtensions.IfEmptyOrWhiteSpace(System.String,System.String)">
+            <summary>Checks whether the string is null, empty or consists only of white-space characters and returns a default value in case</summary>
+            <param name = "value">The string to check</param>
+            <param name = "defaultValue">The default value</param>
+            <returns>Either the string or the default value</returns>
+        </member>
+        <member name="M:StringExtensions.ToUpperFirstLetter(System.String)">
+            <summary>Uppercase First Letter</summary>
+            <param name = "value">The string value to process</param>
+        </member>
+        <member name="M:StringExtensions.Left(System.String,System.Int32)">
+            <summary>
+            Returns the left part of the string.
+            </summary>
+            <param name="value">The original string.</param>
+            <param name="characterCount">The character count to be returned.</param>
+            <returns>The left part</returns>
+        </member>
+        <member name="M:StringExtensions.Right(System.String,System.Int32)">
+            <summary>
+            Returns the Right part of the string.
+            </summary>
+            <param name="value">The original string.</param>
+            <param name="characterCount">The character count to be returned.</param>
+            <returns>The right part</returns>
+        </member>
+        <member name="M:StringExtensions.ToTitleCase(System.String)">
+            <summary>Convert text's case to a title case</summary>
+        </member>
+        <member name="M:StringExtensions.ToHtmlSafe(System.String)">
+            <summary>
+            Makes the current instance HTML safe.
+            </summary>
+            <param name="s">The current instance.</param>
+            <returns>An HTML safe string.</returns>
+        </member>
+        <member name="M:StringExtensions.ToHtmlSafe(System.String,System.Boolean)">
+            <summary>
+            Makes the current instance HTML safe.
+            </summary>
+            <param name="s">The current instance.</param>
+            <param name="all">Whether to make all characters entities or just those needed.</param>
+            <returns>An HTML safe string.</returns>
+        </member>
+        <member name="M:StringExtensions.ToHtmlSafe(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Makes the current instance HTML safe.
+            </summary>
+            <param name="s">The current instance.</param>
+            <param name="all">Whether to make all characters entities or just those needed.</param>
+            <param name="replace">Whether or not to encode spaces and line breaks.</param>
+            <returns>An HTML safe string.</returns>
+        </member>
+        <member name="M:StringExtensions.IsMatchingTo(System.String,System.String)">
+            <summary>
+            	Uses regular expressions to determine if the string matches to a given regex pattern.
+            </summary>
+            <param name = "value">The input string.</param>
+            <param name = "regexPattern">The regular expression pattern.</param>
+            <returns>
+            	<c>true</c> if the value is matching to the specified pattern; otherwise, <c>false</c>.
+            </returns>
+            <example>
+            	<code>
+            		var s = "12345";
+            		var isMatching = s.IsMatchingTo(@"^\d+$");
+            	</code>
+            </example>
+        </member>
+        <member name="M:StringExtensions.IsMatchingTo(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            	Uses regular expressions to determine if the string matches to a given regex pattern.
+            </summary>
+            <param name = "value">The input string.</param>
+            <param name = "regexPattern">The regular expression pattern.</param>
+            <param name = "options">The regular expression options.</param>
+            <returns>
+            	<c>true</c> if the value is matching to the specified pattern; otherwise, <c>false</c>.
+            </returns>
+            <example>
+            	<code>
+            		var s = "12345";
+            		var isMatching = s.IsMatchingTo(@"^\d+$");
+            	</code>
+            </example>
+        </member>
+        <member name="M:StringExtensions.ReplaceWith(System.String,System.String,System.String)">
+            <summary>
+            	Uses regular expressions to replace parts of a string.
+            </summary>
+            <param name = "value">The input string.</param>
+            <param name = "regexPattern">The regular expression pattern.</param>
+            <param name = "replaceValue">The replacement value.</param>
+            <returns>The newly created string</returns>
+            <example>
+            	<code>
+            		var s = "12345";
+            		var replaced = s.ReplaceWith(@"\d", m => string.Concat(" -", m.Value, "- "));
+            	</code>
+            </example>
+        </member>
+        <member name="M:StringExtensions.ReplaceWith(System.String,System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            	Uses regular expressions to replace parts of a string.
+            </summary>
+            <param name = "value">The input string.</param>
+            <param name = "regexPattern">The regular expression pattern.</param>
+            <param name = "replaceValue">The replacement value.</param>
+            <param name = "options">The regular expression options.</param>
+            <returns>The newly created string</returns>
+            <example>
+            	<code>
+            		var s = "12345";
+            		var replaced = s.ReplaceWith(@"\d", m => string.Concat(" -", m.Value, "- "));
+            	</code>
+            </example>
+        </member>
+        <member name="M:StringExtensions.ReplaceWith(System.String,System.String,System.Text.RegularExpressions.MatchEvaluator)">
+            <summary>
+            	Uses regular expressions to replace parts of a string.
+            </summary>
+            <param name = "value">The input string.</param>
+            <param name = "regexPattern">The regular expression pattern.</param>
+            <param name = "evaluator">The replacement method / lambda expression.</param>
+            <returns>The newly created string</returns>
+            <example>
+            	<code>
+            		var s = "12345";
+            		var replaced = s.ReplaceWith(@"\d", m => string.Concat(" -", m.Value, "- "));
+            	</code>
+            </example>
+        </member>
+        <member name="M:StringExtensions.ReplaceWith(System.String,System.String,System.Text.RegularExpressions.RegexOptions,System.Text.RegularExpressions.MatchEvaluator)">
+            <summary>
+            	Uses regular expressions to replace parts of a string.
+            </summary>
+            <param name = "value">The input string.</param>
+            <param name = "regexPattern">The regular expression pattern.</param>
+            <param name = "options">The regular expression options.</param>
+            <param name = "evaluator">The replacement method / lambda expression.</param>
+            <returns>The newly created string</returns>
+            <example>
+            	<code>
+            		var s = "12345";
+            		var replaced = s.ReplaceWith(@"\d", m => string.Concat(" -", m.Value, "- "));
+            	</code>
+            </example>
+        </member>
+        <member name="M:StringExtensions.GetMatches(System.String,System.String)">
+            <summary>
+            	Uses regular expressions to determine all matches of a given regex pattern.
+            </summary>
+            <param name = "value">The input string.</param>
+            <param name = "regexPattern">The regular expression pattern.</param>
+            <returns>A collection of all matches</returns>
+        </member>
+        <member name="M:StringExtensions.GetMatches(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            	Uses regular expressions to determine all matches of a given regex pattern.
+            </summary>
+            <param name = "value">The input string.</param>
+            <param name = "regexPattern">The regular expression pattern.</param>
+            <param name = "options">The regular expression options.</param>
+            <returns>A collection of all matches</returns>
+        </member>
+        <member name="M:StringExtensions.GetMatchingValues(System.String,System.String)">
+            <summary>
+            	Uses regular expressions to determine all matches of a given regex pattern and returns them as string enumeration.
+            </summary>
+            <param name = "value">The input string.</param>
+            <param name = "regexPattern">The regular expression pattern.</param>
+            <returns>An enumeration of matching strings</returns>
+            <example>
+            	<code>
+            		var s = "12345";
+            		foreach(var number in s.GetMatchingValues(@"\d")) {
+            		Console.WriteLine(number);
+            		}
+            	</code>
+            </example>
+        </member>
+        <member name="M:StringExtensions.GetMatchingValues(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            	Uses regular expressions to determine all matches of a given regex pattern and returns them as string enumeration.
+            </summary>
+            <param name = "value">The input string.</param>
+            <param name = "regexPattern">The regular expression pattern.</param>
+            <param name = "options">The regular expression options.</param>
+            <returns>An enumeration of matching strings</returns>
+            <example>
+            	<code>
+            		var s = "12345";
+            		foreach(var number in s.GetMatchingValues(@"\d")) {
+            		Console.WriteLine(number);
+            		}
+            	</code>
+            </example>
+        </member>
+        <member name="M:StringExtensions.Split(System.String,System.String)">
+            <summary>
+            	Uses regular expressions to split a string into parts.
+            </summary>
+            <param name = "value">The input string.</param>
+            <param name = "regexPattern">The regular expression pattern.</param>
+            <returns>The splitted string array</returns>
+        </member>
+        <member name="M:StringExtensions.Split(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            	Uses regular expressions to split a string into parts.
+            </summary>
+            <param name = "value">The input string.</param>
+            <param name = "regexPattern">The regular expression pattern.</param>
+            <param name = "options">The regular expression options.</param>
+            <returns>The splitted string array</returns>
+        </member>
+        <member name="M:StringExtensions.GetWords(System.String)">
+            <summary>
+            	Splits the given string into words and returns a string array.
+            </summary>
+            <param name = "value">The input string.</param>
+            <returns>The splitted string array</returns>
+        </member>
+        <member name="M:StringExtensions.GetWordByIndex(System.String,System.Int32)">
+            <summary>
+            	Gets the nth "word" of a given string, where "words" are substrings separated by a given separator
+            </summary>
+            <param name = "value">The string from which the word should be retrieved.</param>
+            <param name = "index">Index of the word (0-based).</param>
+            <returns>
+            	The word at position n of the string.
+            	Trying to retrieve a word at a position lower than 0 or at a position where no word exists results in an exception.
+            </returns>
+            <remarks>
+            	Originally contributed by MMathews
+            </remarks>
+        </member>
+        <member name="M:StringExtensions.AdjustInput(System.String)">
+            <summary>
+            Removed all special characters from the string.
+            </summary>
+            <param name="value">The input string.</param>
+            <returns>The adjusted string.</returns>
+        </member>
+        <member name="M:StringExtensions.RemoveAllSpecialCharacters(System.String)">
+            <summary>
+            Removed all special characters from the string.
+            </summary>
+            <param name="value">The input string.</param>
+            <returns>The adjusted string.</returns>
+            <remarks>
+            	Contributed by Michael T, http://about.me/MichaelTran
+            </remarks>
+        </member>
+        <member name="M:StringExtensions.SpaceOnUpper(System.String)">
+            <summary>
+            Add space on every upper character
+            </summary>
+            <param name="value">The input string.</param>
+            <returns>The adjusted string.</returns>
+            <remarks>
+            	Contributed by Michael T, http://about.me/MichaelTran
+            </remarks>
+        </member>
+        <member name="M:StringExtensions.ToBytes(System.String)">
+            <summary>
+            	Converts the string to a byte-array using the default encoding
+            </summary>
+            <param name = "value">The input string.</param>
+            <returns>The created byte array</returns>
+        </member>
+        <member name="M:StringExtensions.ToBytes(System.String,System.Text.Encoding)">
+            <summary>
+            	Converts the string to a byte-array using the supplied encoding
+            </summary>
+            <param name = "value">The input string.</param>
+            <param name = "encoding">The encoding to be used.</param>
+            <returns>The created byte array</returns>
+            <example>
+            	<code>
+            		var value = "Hello World";
+            		var ansiBytes = value.ToBytes(Encoding.GetEncoding(1252)); // 1252 = ANSI
+            		var utf8Bytes = value.ToBytes(Encoding.UTF8);
+            	</code>
+            </example>
+        </member>
+        <member name="M:StringExtensions.EncodeBase64(System.String)">
+            <summary>
+            	Encodes the input value to a Base64 string using the default encoding.
+            </summary>
+            <param name = "value">The input value.</param>
+            <returns>The Base 64 encoded string</returns>
+        </member>
+        <member name="M:StringExtensions.EncodeBase64(System.String,System.Text.Encoding)">
+            <summary>
+            	Encodes the input value to a Base64 string using the supplied encoding.
+            </summary>
+            <param name = "value">The input value.</param>
+            <param name = "encoding">The encoding.</param>
+            <returns>The Base 64 encoded string</returns>
+        </member>
+        <member name="M:StringExtensions.DecodeBase64(System.String)">
+            <summary>
+            	Decodes a Base 64 encoded value to a string using the default encoding.
+            </summary>
+            <param name = "encodedValue">The Base 64 encoded value.</param>
+            <returns>The decoded string</returns>
+        </member>
+        <member name="M:StringExtensions.DecodeBase64(System.String,System.Text.Encoding)">
+            <summary>
+            	Decodes a Base 64 encoded value to a string using the supplied encoding.
+            </summary>
+            <param name = "encodedValue">The Base 64 encoded value.</param>
+            <param name = "encoding">The encoding.</param>
+            <returns>The decoded string</returns>
+        </member>
+        <member name="T:PGK.Extensions.Converter`1">
+            <summary>
+            	An internal implementation of the IConverter&lt;T&gt; interface
+            </summary>
+            <typeparam name = "T"></typeparam>
+        </member>
+        <member name="M:PGK.Extensions.Converter`1.#ctor(`0)">
+            <summary>
+            	Initializes a new instance of the <see cref="T:PGK.Extensions.Converter`1"/> class.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="P:PGK.Extensions.Converter`1.Value">
+            <summary>
+            	Gets the internal value to be converted.
+            </summary>
+            <value>The value.</value>
+        </member>
+        <member name="T:BitmapExtensions">
+            <summary>
+            	Extension methods for the System.Drawing.Bitmap class
+            </summary>
+        </member>
+        <member name="M:BitmapExtensions.ScaleToSize(System.Drawing.Bitmap,System.Drawing.Size)">
+            <summary>
+            	Scales the bitmap to the passed target size without respecting the aspect.
+            </summary>
+            <param name = "bitmap">The source bitmap.</param>
+            <param name = "size">The target size.</param>
+            <returns>The scaled bitmap</returns>
+            <example>
+            	<code>
+            		var bitmap = new Bitmap("image.png");
+            		var thumbnail = bitmap.ScaleToSize(100, 100);
+            	</code>
+            </example>
+        </member>
+        <member name="M:BitmapExtensions.ScaleToSize(System.Drawing.Bitmap,System.Int32,System.Int32)">
+            <summary>
+            	Scales the bitmap to the passed target size without respecting the aspect.
+            </summary>
+            <param name = "bitmap">The source bitmap.</param>
+            <param name = "width">The target width.</param>
+            <param name = "height">The target height.</param>
+            <returns>The scaled bitmap</returns>
+            <example>
+            	<code>
+            		var bitmap = new Bitmap("image.png");
+            		var thumbnail = bitmap.ScaleToSize(100, 100);
+            	</code>
+            </example>
+        </member>
+        <member name="M:BitmapExtensions.ScaleProportional(System.Drawing.Bitmap,System.Drawing.Size)">
+            <summary>
+            	Scales the bitmap to the passed target size by respecting the aspect.
+            </summary>
+            <param name = "bitmap">The source bitmap.</param>
+            <param name = "size">The target size.</param>
+            <returns>The scaled bitmap</returns>
+            <example>
+            	<code>
+            		var bitmap = new Bitmap("image.png");
+            		var thumbnail = bitmap.ScaleProportional(100, 100);
+            	</code>
+            </example>
+            <remarks>
+            	Please keep in mind that the returned bitmaps size might not match the desired size due to original bitmaps aspect.
+            </remarks>
+        </member>
+        <member name="M:BitmapExtensions.ScaleProportional(System.Drawing.Bitmap,System.Int32,System.Int32)">
+            <summary>
+            	Scales the bitmap to the passed target size by respecting the aspect.
+            </summary>
+            <param name = "bitmap">The source bitmap.</param>
+            <param name = "width">The target width.</param>
+            <param name = "height">The target height.</param>
+            <returns>The scaled bitmap</returns>
+            <example>
+            	<code>
+            		var bitmap = new Bitmap("image.png");
+            		var thumbnail = bitmap.ScaleProportional(100, 100);
+            	</code>
+            </example>
+            <remarks>
+            	Please keep in mind that the returned bitmaps size might not match the desired size due to original bitmaps aspect.
+            </remarks>
+        </member>
+        <member name="M:BitmapExtensions.ScaleToSizeProportional(System.Drawing.Bitmap,System.Drawing.Size)">
+            <summary>
+            	Scales the bitmap to the passed target size by respecting the aspect. The overlapping background is filled with the given background color.
+            </summary>
+            <param name = "bitmap">The source bitmap.</param>
+            <param name = "size">The target size.</param>
+            <returns>The scaled bitmap</returns>
+            <example>
+            	<code>
+            		var bitmap = new Bitmap("image.png");
+            		var thumbnail = bitmap.ScaleToSizeProportional(100, 100);
+            	</code>
+            </example>
+        </member>
+        <member name="M:BitmapExtensions.ScaleToSizeProportional(System.Drawing.Bitmap,System.Drawing.Color,System.Drawing.Size)">
+            <summary>
+            	Scales the bitmap to the passed target size by respecting the aspect. The overlapping background is filled with the given background color.
+            </summary>
+            <param name = "bitmap">The source bitmap.</param>
+            <param name = "backgroundColor">The color of the background.</param>
+            <param name = "size">The target size.</param>
+            <returns>The scaled bitmap</returns>
+            <example>
+            	<code>
+            		var bitmap = new Bitmap("image.png");
+            		var thumbnail = bitmap.ScaleToSizeProportional(100, 100);
+            	</code>
+            </example>
+        </member>
+        <member name="M:BitmapExtensions.ScaleToSizeProportional(System.Drawing.Bitmap,System.Int32,System.Int32)">
+            <summary>
+            	Scales the bitmap to the passed target size by respecting the aspect. The overlapping background is filled with the given background color.
+            </summary>
+            <param name = "bitmap">The source bitmap.</param>
+            <param name = "width">The target width.</param>
+            <param name = "height">The target height.</param>
+            <returns>The scaled bitmap</returns>
+            <example>
+            	<code>
+            		var bitmap = new Bitmap("image.png");
+            		var thumbnail = bitmap.ScaleToSizeProportional(100, 100);
+            	</code>
+            </example>
+        </member>
+        <member name="M:BitmapExtensions.ScaleToSizeProportional(System.Drawing.Bitmap,System.Drawing.Color,System.Int32,System.Int32)">
+            <summary>
+            	Scales the bitmap to the passed target size by respecting the aspect. The overlapping background is filled with the given background color.
+            </summary>
+            <param name = "bitmap">The source bitmap.</param>
+            <param name = "backgroundColor">The color of the background.</param>
+            <param name = "width">The target width.</param>
+            <param name = "height">The target height.</param>
+            <returns>The scaled bitmap</returns>
+            <example>
+            	<code>
+            		var bitmap = new Bitmap("image.png");
+            		var thumbnail = bitmap.ScaleToSizeProportional(100, 100);
+            	</code>
+            </example>
+        </member>
+        <member name="T:TextReaderExtensions">
+            <summary>
+            	Extension methods for the TextReader class and its sub classes (StreamReader, StringReader)
+            </summary>
+        </member>
+        <member name="M:TextReaderExtensions.IterateLines(System.IO.TextReader)">
+            <summary>
+            	The method provides an iterator through all lines of the text reader.
+            </summary>
+            <param name = "reader">The text reader.</param>
+            <returns>The iterator</returns>
+            <example>
+            	<code>
+            		using(var reader = fileInfo.OpenText()) {
+            		foreach(var line in reader.IterateLines()) {
+            		// ...
+            		}
+            		}
+            	</code>
+            </example>
+            <remarks>
+            	Contributed by OlivierJ
+            </remarks>
+        </member>
+        <member name="M:TextReaderExtensions.IterateLines(System.IO.TextReader,System.Action{System.String})">
+            <summary>
+            	The method executes the passed delegate /lambda expression) for all lines of the text reader.
+            </summary>
+            <param name = "reader">The text reader.</param>
+            <param name = "action">The action.</param>
+            <example>
+            	<code>
+            		using(var reader = fileInfo.OpenText()) {
+            		reader.IterateLines(l => Console.WriteLine(l));
+            		}
+            	</code>
+            </example>
+            <remarks>
+            	Contributed by OlivierJ
+            </remarks>
+        </member>
+        <member name="T:StringConverter">
+            <summary>
+            	Universal conversion and parsing methods for strings.
+            	These methods are avaiblable throught the generic object.ConvertTo method:
+            	Feel free to provide additional converns for string or any other object type.
+            </summary>
+            <example>
+            	<code>
+            		var value = "123";
+            		var numeric = value.ConvertTo().ToInt32();
+            	</code>
+            </example>
+        </member>
+        <member name="M:StringConverter.ToInt32(IConverter{System.String})">
+            <summary>
+            	Converts a string to an Int32 value
+            </summary>
+            <param name = "value">The value.</param>
+            <returns></returns>
+            <example>
+            	<code>
+            		var value = "123";
+            		var numeric = value.ConvertTo().ToInt32();
+            	</code>
+            </example>
+        </member>
+        <member name="M:StringConverter.ToInt32(IConverter{System.String},System.Int32,System.Boolean)">
+            <summary>
+            	Converts a string to an Int32 value
+            </summary>
+            <param name = "value">The value.</param>
+            <param name = "defaultValue">The default value.</param>
+            <param name = "ignoreException">if set to <c>true</c> any parsing exception will be ignored.</param>
+            <returns></returns>
+            <example>
+            	<code>
+            		var value = "123";
+            		var numeric = value.ConvertTo().ToInt32();
+            	</code>
+            </example>
+        </member>
+        <member name="M:StringConverter.ToSecureString(System.String,System.Boolean)">
+            <summary>
+                Converts a regular string into SecureString
+            </summary>
+            <param name="u">String value.</param>
+            <param name="makeReadOnly">Makes the text value of this secure string read-only.</param>
+            <returns>Returns a SecureString containing the value of a transformed object. </returns>
+        </member>
+        <member name="M:StringConverter.ToUnsecureString(System.Security.SecureString)">
+            <summary>
+                Coverts the SecureString to a regular string.
+            </summary>
+            <param name="s">Object value.</param>
+            <returns>Content of secured string.</returns>
+        </member>
+        <member name="T:DictionaryExtensions">
+            <summary>
+            	Extension methods for Dictionary.
+            </summary>
+        </member>
+        <member name="T:DateTimeExtensions">
+            <summary>
+            	Extension methods for the DateTimeOffset data type.
+            </summary>
+        </member>
+        <member name="M:DateTimeExtensions.CalculateAge(System.DateTime)">
+            <summary>
+            	Calculates the age based on today.
+            </summary>
+            <param name = "dateOfBirth">The date of birth.</param>
+            <returns>The calculated age.</returns>
+        </member>
+        <member name="M:DateTimeExtensions.CalculateAge(System.DateTime,System.DateTime)">
+            <summary>
+            	Calculates the age based on a passed reference date.
+            </summary>
+            <param name = "dateOfBirth">The date of birth.</param>
+            <param name = "referenceDate">The reference date to calculate on.</param>
+            <returns>The calculated age.</returns>
+        </member>
+        <member name="M:DateTimeExtensions.GetCountDaysOfMonth(System.DateTime)">
+            <summary>
+            	Returns the number of days in the month of the provided date.
+            </summary>
+            <param name = "date">The date.</param>
+            <returns>The number of days.</returns>
+        </member>
+        <member name="M:DateTimeExtensions.GetFirstDayOfMonth(System.DateTime)">
+            <summary>
+            	Returns the first day of the month of the provided date.
+            </summary>
+            <param name = "date">The date.</param>
+            <returns>The first day of the month</returns>
+        </member>
+        <member name="M:DateTimeExtensions.GetFirstDayOfMonth(System.DateTime,System.DayOfWeek)">
+            <summary>
+            	Returns the first day of the month of the provided date.
+            </summary>
+            <param name = "date">The date.</param>
+            <param name = "dayOfWeek">The desired day of week.</param>
+            <returns>The first day of the month</returns>
+        </member>
+        <member name="M:DateTimeExtensions.GetLastDayOfMonth(System.DateTime)">
+            <summary>
+            	Returns the last day of the month of the provided date.
+            </summary>
+            <param name = "date">The date.</param>
+            <returns>The last day of the month.</returns>
+        </member>
+        <member name="M:DateTimeExtensions.GetLastDayOfMonth(System.DateTime,System.DayOfWeek)">
+            <summary>
+            	Returns the last day of the month of the provided date.
+            </summary>
+            <param name = "date">The date.</param>
+            <param name = "dayOfWeek">The desired day of week.</param>
+            <returns>The date time</returns>
+        </member>
+        <member name="M:DateTimeExtensions.IsToday(System.DateTime)">
+            <summary>
+            	Indicates whether the date is today.
+            </summary>
+            <param name = "dt">The date.</param>
+            <returns>
+            	<c>true</c> if the specified date is today; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:DateTimeExtensions.SetTime(System.DateTime,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            	Sets the time on the specified DateTime value.
+            </summary>
+            <param name = "date">The base date.</param>
+            <param name = "hours">The hours to be set.</param>
+            <param name = "minutes">The minutes to be set.</param>
+            <param name = "seconds">The seconds to be set.</param>
+            <returns>The DateTime including the new time value</returns>
+        </member>
+        <member name="M:DateTimeExtensions.SetTime(System.DateTime,System.TimeSpan)">
+            <summary>
+            	Sets the time on the specified DateTime value.
+            </summary>
+            <param name = "date">The base date.</param>
+            <param name = "time">The TimeSpan to be applied.</param>
+            <returns>
+            	The DateTime including the new time value
+            </returns>
+        </member>
+        <member name="M:DateTimeExtensions.ToDateTimeOffset(System.DateTime)">
+            <summary>
+            	Converts a DateTime into a DateTimeOffset using the local system time zone.
+            </summary>
+            <param name = "localDateTime">The local DateTime.</param>
+            <returns>The converted DateTimeOffset</returns>
+        </member>
+        <member name="M:DateTimeExtensions.ToDateTimeOffset(System.DateTime,System.TimeZoneInfo)">
+            <summary>
+            	Converts a DateTime into a DateTimeOffset using the specified time zone.
+            </summary>
+            <param name = "localDateTime">The local DateTime.</param>
+            <param name = "localTimeZone">The local time zone.</param>
+            <returns>The converted DateTimeOffset</returns>
+        </member>
+        <member name="M:DateTimeExtensions.GetFirstDayOfWeek(System.DateTime)">
+            <summary>
+            	Gets the first day of the week using the current culture.
+            </summary>
+            <param name = "date">The date.</param>
+            <returns>The first day of the week</returns>
+        </member>
+        <member name="M:DateTimeExtensions.GetFirstDayOfWeek(System.DateTime,System.Globalization.CultureInfo)">
+            <summary>
+            	Gets the first day of the week using the specified culture.
+            </summary>
+            <param name = "date">The date.</param>
+            <param name = "cultureInfo">The culture to determine the first weekday of a week.</param>
+            <returns>The first day of the week</returns>
+        </member>
+        <member name="M:DateTimeExtensions.GetLastDayOfWeek(System.DateTime)">
+            <summary>
+            	Gets the last day of the week using the current culture.
+            </summary>
+            <param name = "date">The date.</param>
+            <returns>The first day of the week</returns>
+        </member>
+        <member name="M:DateTimeExtensions.GetLastDayOfWeek(System.DateTime,System.Globalization.CultureInfo)">
+            <summary>
+            	Gets the last day of the week using the specified culture.
+            </summary>
+            <param name = "date">The date.</param>
+            <param name = "cultureInfo">The culture to determine the first weekday of a week.</param>
+            <returns>The first day of the week</returns>
+        </member>
+        <member name="M:DateTimeExtensions.GetWeeksWeekday(System.DateTime,System.DayOfWeek)">
+            <summary>
+            	Gets the next occurence of the specified weekday within the current week using the current culture.
+            </summary>
+            <param name = "date">The base date.</param>
+            <param name = "weekday">The desired weekday.</param>
+            <returns>The calculated date.</returns>
+            <example>
+            	<code>
+            		var thisWeeksMonday = DateTime.Now.GetWeekday(DayOfWeek.Monday);
+            	</code>
+            </example>
+        </member>
+        <member name="M:DateTimeExtensions.GetWeeksWeekday(System.DateTime,System.DayOfWeek,System.Globalization.CultureInfo)">
+            <summary>
+            	Gets the next occurence of the specified weekday within the current week using the specified culture.
+            </summary>
+            <param name = "date">The base date.</param>
+            <param name = "weekday">The desired weekday.</param>
+            <param name = "cultureInfo">The culture to determine the first weekday of a week.</param>
+            <returns>The calculated date.</returns>
+            <example>
+            	<code>
+            		var thisWeeksMonday = DateTime.Now.GetWeekday(DayOfWeek.Monday);
+            	</code>
+            </example>
+        </member>
+        <member name="M:DateTimeExtensions.GetNextWeekday(System.DateTime,System.DayOfWeek)">
+            <summary>
+            	Gets the next occurence of the specified weekday.
+            </summary>
+            <param name = "date">The base date.</param>
+            <param name = "weekday">The desired weekday.</param>
+            <returns>The calculated date.</returns>
+            <example>
+            	<code>
+            		var lastMonday = DateTime.Now.GetNextWeekday(DayOfWeek.Monday);
+            	</code>
+            </example>
+        </member>
+        <member name="M:DateTimeExtensions.GetPreviousWeekday(System.DateTime,System.DayOfWeek)">
+            <summary>
+            	Gets the previous occurence of the specified weekday.
+            </summary>
+            <param name = "date">The base date.</param>
+            <param name = "weekday">The desired weekday.</param>
+            <returns>The calculated date.</returns>
+            <example>
+            	<code>
+            		var lastMonday = DateTime.Now.GetPreviousWeekday(DayOfWeek.Monday);
+            	</code>
+            </example>
+        </member>
+        <member name="M:DateTimeExtensions.IsDateEqual(System.DateTime,System.DateTime)">
+            <summary>
+            	Determines whether the date only part of twi DateTime values are equal.
+            </summary>
+            <param name = "date">The date.</param>
+            <param name = "dateToCompare">The date to compare with.</param>
+            <returns>
+            	<c>true</c> if both date values are equal; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:DateTimeExtensions.IsTimeEqual(System.DateTime,System.DateTime)">
+            <summary>
+            	Determines whether the time only part of two DateTime values are equal.
+            </summary>
+            <param name = "time">The time.</param>
+            <param name = "timeToCompare">The time to compare.</param>
+            <returns>
+            	<c>true</c> if both time values are equal; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:DateTimeExtensions.GetMillisecondsSince1970(System.DateTime)">
+            <summary>
+            	Get milliseconds of UNIX area. This is the milliseconds since 1/1/1970
+            </summary>
+            <param name = "datetime">Up to which time.</param>
+            <returns>number of milliseconds.</returns>
+            <remarks>
+            	Contributed by blaumeister, http://www.codeplex.com/site/users/view/blaumeiser
+            </remarks>
+        </member>
+        <member name="M:DateTimeExtensions.IsWeekend(System.DateTime)">
+            <summary>
+            	Indicates whether the specified date is a weekend (Saturday or Sunday).
+            </summary>
+            <param name = "date">The date.</param>
+            <returns>
+            	<c>true</c> if the specified date is a weekend; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:DateTimeExtensions.AddWeeks(System.DateTime,System.Int32)">
+            <summary>
+            	Adds the specified amount of weeks (=7 days gregorian calendar) to the passed date value.
+            </summary>
+            <param name = "date">The origin date.</param>
+            <param name = "value">The amount of weeks to be added.</param>
+            <returns>The enw date value</returns>
+        </member>
+        <member name="M:DateTimeExtensions.GetDays(System.Int32)">
+            <summary>
+            	Get the number of days within that year.
+            </summary>
+            <param name = "year">The year.</param>
+            <returns>the number of days within that year</returns>
+             <remarks>
+             	Contributed by Michael T, http://about.me/MichaelTran
+             </remarks>
+        </member>
+        <member name="M:DateTimeExtensions.GetDays(System.DateTime)">
+            <summary>
+            	Get the number of days within that date year.
+            </summary>
+            <param name = "date">The date.</param>
+            <returns>the number of days within that year</returns>
+             <remarks>
+             	Contributed by Michael T, http://about.me/MichaelTran
+             </remarks>
+        </member>
+        <member name="M:DateTimeExtensions.GetDays(System.DateTime,System.DateTime)">
+            <summary>
+            	Get the number of days between two dates.
+            </summary>
+            <param name = "fromDate">The origin year.</param>
+            <param name = "toDate">To year</param>
+            <returns>The number of days between the two years</returns>
+             <remarks>
+             	Contributed by Michael T, http://about.me/MichaelTran
+             </remarks>
+        </member>
+        <member name="M:DateTimeExtensions.GetPeriodOfDay(System.DateTime)">
+            <summary>
+            	Return a period "Morning", "Afternoon", or "Evening"
+            </summary>
+            <param name = "date">The date.</param>
+            <returns>The period "morning", "afternoon", or "evening"</returns>
+             <remarks>
+             	Contributed by Michael T, http://about.me/MichaelTran
+             </remarks>
+        </member>
+        <member name="M:DateTimeExtensions.GetWeekOfYear(System.DateTime)">
+            <summary>
+            Gets the week number for a provided date time value based on the current culture settings.
+            </summary>
+            <param name="dateTime">The date time.</param>
+            <returns>The week number</returns>
+        </member>
+        <member name="M:DateTimeExtensions.IsEaster(System.DateTime)">
+            <summary>
+                Indicates whether the specified date is Easter in the Christian calendar.
+            </summary>
+            <param name="date">Instance value.</param>
+            <returns>True if the instance value is a valid Easter Date.</returns>
+        </member>
+        <member name="P:DateTimeExtensions.UtcOffset">
+            <summary>
+            	Return System UTC Offset
+            </summary>
+        </member>
+        <member name="T:ByteArrayExtensions">
+            <summary>
+            	Extension methods for byte-Arrays
+            </summary>
+        </member>
+        <member name="M:ByteArrayExtensions.FindArrayInArray(System.Byte[],System.Byte[])">
+            <summary>
+            	Find the first occurence of an byte[] in another byte[]
+            </summary>
+            <param name = "buf1">the byte[] to search in</param>
+            <param name = "buf2">the byte[] to find</param>
+            <returns>the first position of the found byte[] or -1 if not found</returns>
+            <remarks>
+            	Contributed by blaumeister, http://www.codeplex.com/site/users/view/blaumeiser
+            </remarks>
+        </member>
+        <member name="T:DataRowViewViewExtensions">
+            <summary>
+            	Extension methods for ADO.NET DataRowViewViews (DataView / DataTable / DataSet)
+            </summary>
+        </member>
+        <member name="M:DataRowViewViewExtensions.Get``1(System.Data.DataRowView,System.String)">
+            <summary>
+            	Gets the record value casted to the specified data type or the data types default value.
+            </summary>
+            <typeparam name = "T">The return data type</typeparam>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.Get``1(System.Data.DataRowView,System.String,``0)">
+            <summary>
+            	Gets the record value casted to the specified data type or the specified default value.
+            </summary>
+            <typeparam name = "T">The return data type</typeparam>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetBytes(System.Data.DataRowView,System.String)">
+            <summary>
+            	Gets the record value casted as byte array.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetString(System.Data.DataRowView,System.String)">
+            <summary>
+            	Gets the record value casted as string or null.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetString(System.Data.DataRowView,System.String,System.String)">
+            <summary>
+            	Gets the record value casted as string or the specified default value.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetGuid(System.Data.DataRowView,System.String)">
+            <summary>
+            	Gets the record value casted as Guid or Guid.Empty.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetDateTime(System.Data.DataRowView,System.String)">
+            <summary>
+            	Gets the record value casted as DateTime or DateTime.MinValue.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetDateTime(System.Data.DataRowView,System.String,System.DateTime)">
+            <summary>
+            	Gets the record value casted as DateTime or the specified default value.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetDateTimeOffset(System.Data.DataRowView,System.String)">
+            <summary>
+            	Gets the record value casted as DateTimeOffset (UTC) or DateTime.MinValue.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetDateTimeOffset(System.Data.DataRowView,System.String,System.DateTimeOffset)">
+            <summary>
+            	Gets the record value casted as DateTimeOffset (UTC) or the specified default value.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetInt32(System.Data.DataRowView,System.String)">
+            <summary>
+            	Gets the record value casted as int or 0.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetInt32(System.Data.DataRowView,System.String,System.Int32)">
+            <summary>
+            	Gets the record value casted as int or the specified default value.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetInt64(System.Data.DataRowView,System.String)">
+            <summary>
+            	Gets the record value casted as long or 0.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetInt64(System.Data.DataRowView,System.String,System.Int32)">
+            <summary>
+            	Gets the record value casted as long or the specified default value.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetDecimal(System.Data.DataRowView,System.String)">
+            <summary>
+            	Gets the record value casted as decimal or 0.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetDecimal(System.Data.DataRowView,System.String,System.Int64)">
+            <summary>
+            	Gets the record value casted as decimal or the specified default value.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetBoolean(System.Data.DataRowView,System.String)">
+            <summary>
+            	Gets the record value casted as bool or false.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetBoolean(System.Data.DataRowView,System.String,System.Boolean)">
+            <summary>
+            	Gets the record value casted as bool or the specified default value.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetType(System.Data.DataRowView,System.String)">
+            <summary>
+            	Gets the record value as Type class instance or null.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetType(System.Data.DataRowView,System.String,System.Type)">
+            <summary>
+            	Gets the record value as Type class instance or the specified default value.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetTypeInstance(System.Data.DataRowView,System.String)">
+            <summary>
+            	Gets the record value as class instance from a type name or null.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetTypeInstance(System.Data.DataRowView,System.String,System.Type)">
+            <summary>
+            	Gets the record value as class instance from a type name or the specified default type.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetTypeInstance``1(System.Data.DataRowView,System.String)">
+            <summary>
+            	Gets the record value as class instance from a type name or null.
+            </summary>
+            <typeparam name = "T">The type to be casted to</typeparam>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetTypeInstanceSafe``1(System.Data.DataRowView,System.String,System.Type)">
+            <summary>
+            	Gets the record value as class instance from a type name or the specified default type.
+            </summary>
+            <typeparam name = "T">The type to be casted to</typeparam>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "type">The type.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.GetTypeInstanceSafe``1(System.Data.DataRowView,System.String)">
+            <summary>
+            	Gets the record value as class instance from a type name or an instance from the specified type.
+            </summary>
+            <typeparam name = "T">The type to be casted to</typeparam>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowViewViewExtensions.IsDBNull(System.Data.DataRowView,System.String)">
+            <summary>
+            	Determines whether the record value is DBNull.Value
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>
+            	<c>true</c> if the value is DBNull.Value; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:ComponentExtensions">
+            <summary>
+            	Extension methods for IComponent data type.
+            </summary>
+        </member>
+        <member name="M:ComponentExtensions.IsInDesignMode(System.ComponentModel.IComponent)">
+            <summary>
+            	Returns <c>true</c> if target component is in design mode.
+            	Othervise returns <c>false</c>.
+            </summary>
+            <param name = "target">Target component. Can not be null.</param>
+            <remarks>
+            	Contributed by tencokacistromy, http://www.codeplex.com/site/users/view/tencokacistromy
+            </remarks>
+        </member>
+        <member name="M:ComponentExtensions.IsInRuntimeMode(System.ComponentModel.IComponent)">
+            <summary>
+            	Returns <c>true</c> if target component is NOT in design mode.
+            	Othervise returns <c>false</c>.
+            </summary>
+            <param name = "target">Target component.</param>
+            <remarks>
+            	Contributed by tencokacistromy, http://www.codeplex.com/site/users/view/tencokacistromy
+            </remarks>
+        </member>
+        <member name="T:ExceptionExtensions">
+            <summary>
+              Extension methods for all kinds of exceptions.
+            </summary>
+        </member>
+        <member name="M:ExceptionExtensions.GetOriginalException(System.Exception)">
+            <summary>
+              Gets the original exception which is most inner exception.
+            </summary>
+            <param name = "exception">The exeption</param>
+            <returns>The original exception</returns>
+            <remarks>
+              Contributed by Kenneth Scott
+            </remarks>
+        </member>
+        <member name="M:ExceptionExtensions.Messages(System.Exception)">
+            <summary>
+             Gets all the error messages
+            </summary>
+            <param name="exception">The exception</param>
+            <returns>IEnumerable of message</returns>
+             <remarks>
+             	Contributed by Michael T, http://about.me/MichaelTran
+             </remarks>
+             <note>
+             The most inner exception message is first in the list, and the most outer exception message is last in the list
+             </note>
+        </member>
+        <member name="M:ExceptionExtensions.Exceptions(System.Exception)">
+            <summary>
+             Gets all the errors
+            </summary>
+            <param name="exception">The exception</param>
+            <returns>IEnumerable of message</returns>
+             <remarks>
+             	Contributed by Michael T, http://about.me/MichaelTran
+             </remarks>
+             <note>
+             The most inner exception is first in the list, and the most outer exception is last in the list
+             </note>
+        </member>
+        <member name="T:DateTimeOffsetExtensions">
+            <summary>
+            	Extension methods for the DateTimeOffset data type.
+            </summary>
+        </member>
+        <member name="M:DateTimeOffsetExtensions.IsToday(System.DateTimeOffset)">
+            <summary>
+            	Indicates whether the date is today.
+            </summary>
+            <param name = "dto">The date.</param>
+            <returns>
+            	<c>true</c> if the specified date is today; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:DateTimeOffsetExtensions.SetTime(System.DateTimeOffset,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            	Sets the time on the specified DateTimeOffset value using the local system time zone.
+            </summary>
+            <param name = "date">The base date.</param>
+            <param name = "hours">The hours to be set.</param>
+            <param name = "minutes">The minutes to be set.</param>
+            <param name = "seconds">The seconds to be set.</param>
+            <returns>The DateTimeOffset including the new time value</returns>
+        </member>
+        <member name="M:DateTimeOffsetExtensions.SetTime(System.DateTimeOffset,System.TimeSpan)">
+            <summary>
+            	Sets the time on the specified DateTime value using the local system time zone.
+            </summary>
+            <param name = "date">The base date.</param>
+            <param name = "time">The TimeSpan to be applied.</param>
+            <returns>
+            	The DateTimeOffset including the new time value
+            </returns>
+        </member>
+        <member name="M:DateTimeOffsetExtensions.SetTime(System.DateTimeOffset,System.TimeSpan,System.TimeZoneInfo)">
+            <summary>
+            	Sets the time on the specified DateTime value using the specified time zone.
+            </summary>
+            <param name = "date">The base date.</param>
+            <param name = "time">The TimeSpan to be applied.</param>
+            <param name = "localTimeZone">The local time zone.</param>
+            <returns>/// The DateTimeOffset including the new time value/// </returns>
+        </member>
+        <member name="M:DateTimeOffsetExtensions.ToLocalDateTime(System.DateTimeOffset)">
+            <summary>
+            	Converts a DateTimeOffset into a DateTime using the local system time zone.
+            </summary>
+            <param name = "dateTimeUtc">The base DateTimeOffset.</param>
+            <returns>The converted DateTime</returns>
+        </member>
+        <member name="M:DateTimeOffsetExtensions.ToLocalDateTime(System.DateTimeOffset,System.TimeZoneInfo)">
+            <summary>
+            	Converts a DateTimeOffset into a DateTime using the specified time zone.
+            </summary>
+            <param name = "dateTimeUtc">The base DateTimeOffset.</param>
+            <param name = "localTimeZone">The time zone to be used for conversion.</param>
+            <returns>The converted DateTime</returns>
+        </member>
+        <member name="T:DataRowExtensions">
+            <summary>
+            	Extension methods for ADO.NET DataRows (DataTable / DataSet)
+            </summary>
+        </member>
+        <member name="M:DataRowExtensions.Get``1(System.Data.DataRow,System.String)">
+            <summary>
+            	Gets the record value casted to the specified data type or the data types default value.
+            </summary>
+            <typeparam name = "T">The return data type</typeparam>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.Get``1(System.Data.DataRow,System.String,``0)">
+            <summary>
+            	Gets the record value casted to the specified data type or the specified default value.
+            </summary>
+            <typeparam name = "T">The return data type</typeparam>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetBytes(System.Data.DataRow,System.String)">
+            <summary>
+            	Gets the record value casted as byte array.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetString(System.Data.DataRow,System.String)">
+            <summary>
+            	Gets the record value casted as string or null.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetString(System.Data.DataRow,System.String,System.String)">
+            <summary>
+            	Gets the record value casted as string or the specified default value.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetGuid(System.Data.DataRow,System.String)">
+            <summary>
+            	Gets the record value casted as Guid or Guid.Empty.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetDateTime(System.Data.DataRow,System.String)">
+            <summary>
+            	Gets the record value casted as DateTime or DateTime.MinValue.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetDateTime(System.Data.DataRow,System.String,System.DateTime)">
+            <summary>
+            	Gets the record value casted as DateTime or the specified default value.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetDateTimeOffset(System.Data.DataRow,System.String)">
+            <summary>
+            	Gets the record value casted as DateTimeOffset (UTC) or DateTime.MinValue.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetDateTimeOffset(System.Data.DataRow,System.String,System.DateTimeOffset)">
+            <summary>
+            	Gets the record value casted as DateTimeOffset (UTC) or the specified default value.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetInt32(System.Data.DataRow,System.String)">
+            <summary>
+            	Gets the record value casted as int or 0.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetInt32(System.Data.DataRow,System.String,System.Int32)">
+            <summary>
+            	Gets the record value casted as int or the specified default value.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetInt64(System.Data.DataRow,System.String)">
+            <summary>
+            	Gets the record value casted as long or 0.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetInt64(System.Data.DataRow,System.String,System.Int32)">
+            <summary>
+            	Gets the record value casted as long or the specified default value.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetDecimal(System.Data.DataRow,System.String)">
+            <summary>
+            	Gets the record value casted as decimal or 0.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetDecimal(System.Data.DataRow,System.String,System.Int64)">
+            <summary>
+            	Gets the record value casted as decimal or the specified default value.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetBoolean(System.Data.DataRow,System.String)">
+            <summary>
+            	Gets the record value casted as bool or false.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetBoolean(System.Data.DataRow,System.String,System.Boolean)">
+            <summary>
+            	Gets the record value casted as bool or the specified default value.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetType(System.Data.DataRow,System.String)">
+            <summary>
+            	Gets the record value as Type class instance or null.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetType(System.Data.DataRow,System.String,System.Type)">
+            <summary>
+            	Gets the record value as Type class instance or the specified default value.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetTypeInstance(System.Data.DataRow,System.String)">
+            <summary>
+            	Gets the record value as class instance from a type name or null.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetTypeInstance(System.Data.DataRow,System.String,System.Type)">
+            <summary>
+            	Gets the record value as class instance from a type name or the specified default type.
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetTypeInstance``1(System.Data.DataRow,System.String)">
+            <summary>
+            	Gets the record value as class instance from a type name or null.
+            </summary>
+            <typeparam name = "T">The type to be casted to</typeparam>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetTypeInstanceSafe``1(System.Data.DataRow,System.String,System.Type)">
+            <summary>
+            	Gets the record value as class instance from a type name or the specified default type.
+            </summary>
+            <typeparam name = "T">The type to be casted to</typeparam>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "type">The type.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.GetTypeInstanceSafe``1(System.Data.DataRow,System.String)">
+            <summary>
+            	Gets the record value as class instance from a type name or an instance from the specified type.
+            </summary>
+            <typeparam name = "T">The type to be casted to</typeparam>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataRowExtensions.IsDBNull(System.Data.DataRow,System.String)">
+            <summary>
+            	Determines whether the record value is DBNull.Value
+            </summary>
+            <param name = "row">The data row.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>
+            	<c>true</c> if the value is DBNull.Value; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:DataReaderExtensions">
+            <summary>
+            	Extension methods for all kind of ADO.NET DataReaders (SqlDataReader, OracleDataReader, ...)
+            </summary>
+        </member>
+        <member name="M:DataReaderExtensions.Get``1(System.Data.IDataReader,System.String)">
+            <summary>
+            	Gets the record value casted to the specified data type or the data types default value.
+            </summary>
+            <typeparam name = "T">The return data type</typeparam>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.Get``1(System.Data.IDataReader,System.String,``0)">
+            <summary>
+            	Gets the record value casted to the specified data type or the specified default value.
+            </summary>
+            <typeparam name = "T">The return data type</typeparam>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetBytes(System.Data.IDataReader,System.String)">
+            <summary>
+            	Gets the record value casted as byte array.
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetString(System.Data.IDataReader,System.String)">
+            <summary>
+            	Gets the record value casted as string or null.
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetString(System.Data.IDataReader,System.String,System.String)">
+            <summary>
+            	Gets the record value casted as string or the specified default value.
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetGuid(System.Data.IDataReader,System.String)">
+            <summary>
+            	Gets the record value casted as Guid or Guid.Empty.
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetDateTime(System.Data.IDataReader,System.String)">
+            <summary>
+            	Gets the record value casted as DateTime or DateTime.MinValue.
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetDateTime(System.Data.IDataReader,System.String,System.DateTime)">
+            <summary>
+            	Gets the record value casted as DateTime or the specified default value.
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetDateTimeOffset(System.Data.IDataReader,System.String)">
+            <summary>
+            	Gets the record value casted as DateTimeOffset (UTC) or DateTime.MinValue.
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetDateTimeOffset(System.Data.IDataReader,System.String,System.DateTimeOffset)">
+            <summary>
+            	Gets the record value casted as DateTimeOffset (UTC) or the specified default value.
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetInt32(System.Data.IDataReader,System.String)">
+            <summary>
+            	Gets the record value casted as int or 0.
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetInt32(System.Data.IDataReader,System.String,System.Int32)">
+            <summary>
+            	Gets the record value casted as int or the specified default value.
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetInt64(System.Data.IDataReader,System.String)">
+            <summary>
+            	Gets the record value casted as long or 0.
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetInt64(System.Data.IDataReader,System.String,System.Int32)">
+            <summary>
+            	Gets the record value casted as long or the specified default value.
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetDecimal(System.Data.IDataReader,System.String)">
+            <summary>
+            	Gets the record value casted as decimal or 0.
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetDecimal(System.Data.IDataReader,System.String,System.Int64)">
+            <summary>
+            	Gets the record value casted as decimal or the specified default value.
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetBoolean(System.Data.IDataReader,System.String)">
+            <summary>
+            	Gets the record value casted as bool or false.
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetBoolean(System.Data.IDataReader,System.String,System.Boolean)">
+            <summary>
+            	Gets the record value casted as bool or the specified default value.
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetType(System.Data.IDataReader,System.String)">
+            <summary>
+            	Gets the record value as Type class instance or null.
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetType(System.Data.IDataReader,System.String,System.Type)">
+            <summary>
+            	Gets the record value as Type class instance or the specified default value.
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetTypeInstance(System.Data.IDataReader,System.String)">
+            <summary>
+            	Gets the record value as class instance from a type name or null.
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetTypeInstance(System.Data.IDataReader,System.String,System.Type)">
+            <summary>
+            	Gets the record value as class instance from a type name or the specified default type.
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetTypeInstance``1(System.Data.IDataReader,System.String)">
+            <summary>
+            	Gets the record value as class instance from a type name or null.
+            </summary>
+            <typeparam name = "T">The type to be casted to</typeparam>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetTypeInstanceSafe``1(System.Data.IDataReader,System.String,System.Type)">
+            <summary>
+            	Gets the record value as class instance from a type name or the specified default type.
+            </summary>
+            <typeparam name = "T">The type to be casted to</typeparam>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <param name = "type">The type.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.GetTypeInstanceSafe``1(System.Data.IDataReader,System.String)">
+            <summary>
+            	Gets the record value as class instance from a type name or an instance from the specified type.
+            </summary>
+            <typeparam name = "T">The type to be casted to</typeparam>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>The record value</returns>
+        </member>
+        <member name="M:DataReaderExtensions.IsDBNull(System.Data.IDataReader,System.String)">
+            <summary>
+            	Determines whether the record value is DBNull.Value
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "field">The name of the record field.</param>
+            <returns>
+            	<c>true</c> if the value is DBNull.Value; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:DataReaderExtensions.ReadAll(System.Data.IDataReader,System.Action{System.Data.IDataReader})">
+            <summary>
+            	Reads all all records from a data reader and performs an action for each.
+            </summary>
+            <param name = "reader">The data reader.</param>
+            <param name = "action">The action to be performed.</param>
+            <returns>
+            	The count of actions that were performed.
+            </returns>
+        </member>
+        <member name="T:XmlNodeExtensions">
+            <summary>
+            	Extension methods for the XmlNode / XmlDocument classes and its sub classes
+            </summary>
+        </member>
+        <member name="M:XmlNodeExtensions.CreateChildNode(System.Xml.XmlNode,System.String)">
+            <summary>
+            	Appends a child to a XML node
+            </summary>
+            <param name = "parentNode">The parent node.</param>
+            <param name = "name">The name of the child node.</param>
+            <returns>The newly cerated XML node</returns>
+        </member>
+        <member name="M:XmlNodeExtensions.CreateChildNode(System.Xml.XmlNode,System.String,System.String)">
+            <summary>
+            	Appends a child to a XML node
+            </summary>
+            <param name = "parentNode">The parent node.</param>
+            <param name = "name">The name of the child node.</param>
+            <param name = "namespaceUri">The node namespace.</param>
+            <returns>The newly cerated XML node</returns>
+        </member>
+        <member name="M:XmlNodeExtensions.CreateCDataSection(System.Xml.XmlNode)">
+            <summary>
+            	Appends a CData section to a XML node
+            </summary>
+            <param name = "parentNode">The parent node.</param>
+            <returns>The created CData Section</returns>
+        </member>
+        <member name="M:XmlNodeExtensions.CreateCDataSection(System.Xml.XmlNode,System.String)">
+            <summary>
+            	Appends a CData section to a XML node and prefills the provided data
+            </summary>
+            <param name = "parentNode">The parent node.</param>
+            <param name = "data">The CData section value.</param>
+            <returns>The created CData Section</returns>
+        </member>
+        <member name="M:XmlNodeExtensions.GetCDataSection(System.Xml.XmlNode)">
+            <summary>
+            	Returns the value of a nested CData section.
+            </summary>
+            <param name = "parentNode">The parent node.</param>
+            <returns>The CData section content</returns>
+        </member>
+        <member name="M:XmlNodeExtensions.GetAttribute(System.Xml.XmlNode,System.String)">
+            <summary>
+            	Gets an attribute value
+            </summary>
+            <param name = "node">The node.</param>
+            <param name = "attributeName">The Name of the attribute.</param>
+            <returns>The attribute value</returns>
+        </member>
+        <member name="M:XmlNodeExtensions.GetAttribute(System.Xml.XmlNode,System.String,System.String)">
+            <summary>
+            	Gets an attribute value
+            </summary>
+            <param name = "node">The node.</param>
+            <param name = "attributeName">The Name of the attribute.</param>
+            <param name = "defaultValue">The default value to be returned if no matching attribute exists.</param>
+            <returns>The attribute value</returns>
+        </member>
+        <member name="M:XmlNodeExtensions.GetAttribute``1(System.Xml.XmlNode,System.String)">
+            <summary>
+            	Gets an attribute value converted to the specified data type
+            </summary>
+            <typeparam name = "T">The desired return data type</typeparam>
+            <param name = "node">The node.</param>
+            <param name = "attributeName">The Name of the attribute.</param>
+            <returns>The attribute value</returns>
+        </member>
+        <member name="M:XmlNodeExtensions.GetAttribute``1(System.Xml.XmlNode,System.String,``0)">
+            <summary>
+            	Gets an attribute value converted to the specified data type
+            </summary>
+            <typeparam name = "T">The desired return data type</typeparam>
+            <param name = "node">The node.</param>
+            <param name = "attributeName">The Name of the attribute.</param>
+            <param name = "defaultValue">The default value to be returned if no matching attribute exists.</param>
+            <returns>The attribute value</returns>
+        </member>
+        <member name="M:XmlNodeExtensions.SetAttribute(System.Xml.XmlNode,System.String,System.Object)">
+            <summary>
+            	Creates or updates an attribute with the passed value.
+            </summary>
+            <param name = "node">The node.</param>
+            <param name = "name">The name.</param>
+            <param name = "value">The value.</param>
+        </member>
+        <member name="M:XmlNodeExtensions.SetAttribute(System.Xml.XmlNode,System.String,System.String)">
+            <summary>
+            	Creates or updates an attribute with the passed value.
+            </summary>
+            <param name = "node">The node.</param>
+            <param name = "name">The name.</param>
+            <param name = "value">The value.</param>
+        </member>
+        <member name="T:PGK.Extensions.CombinedException">
+            <summary>
+            	Generic exception for combining several other exceptions
+            </summary>
+        </member>
+        <member name="M:PGK.Extensions.CombinedException.#ctor(System.String,System.Exception[])">
+            <summary>
+            	Initializes a new instance of the <see cref="T:PGK.Extensions.CombinedException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="innerExceptions">The inner exceptions.</param>
+        </member>
+        <member name="P:PGK.Extensions.CombinedException.InnerExceptions">
+            <summary>
+            	Gets the inner exceptions.
+            </summary>
+            <value>The inner exceptions.</value>
+        </member>
+        <member name="T:TypeExtensions">
+            <summary>
+            	Extension methods for the reflection meta data type "Type"
+            </summary>
+        </member>
+        <member name="M:TypeExtensions.CreateInstance(System.Type,System.Object[])">
+            <summary>
+            	Creates and returns an instance of the desired type
+            </summary>
+            <param name = "type">The type to be instanciated.</param>
+            <param name = "constructorParameters">Optional constructor parameters</param>
+            <returns>The instanciated object</returns>
+            <example>
+            	<code>
+            		var type = Type.GetType(".NET full qualified class Type")
+            		var instance = type.CreateInstance();
+            	</code>
+            </example>
+        </member>
+        <member name="M:TypeExtensions.CreateInstance``1(System.Type,System.Object[])">
+            <summary>
+            	Creates and returns an instance of the desired type casted to the generic parameter type T
+            </summary>
+            <typeparam name = "T">The data type the instance is casted to.</typeparam>
+            <param name = "type">The type to be instanciated.</param>
+            <param name = "constructorParameters">Optional constructor parameters</param>
+            <returns>The instanciated object</returns>
+            <example>
+            	<code>
+            		var type = Type.GetType(".NET full qualified class Type")
+            		var instance = type.CreateInstance&lt;IDataType&gt;();
+            	</code>
+            </example>
+        </member>
+        <member name="M:TypeExtensions.IsBaseType(System.Type,System.Type)">
+            <summary>
+            	Check if this is a base type
+            </summary>
+            <param name = "type"></param>
+            <param name = "checkingType"></param>
+            <returns></returns>
+             <remarks>
+             	Contributed by Michael T, http://about.me/MichaelTran
+             </remarks>
+        </member>
+        <member name="M:TypeExtensions.IsSubclassOfRawGeneric(System.Type,System.Type)">
+            <summary>
+            	Check if this is a sub class generic type
+            </summary>
+            <param name = "generic"></param>
+            <param name = "toCheck"></param>
+            <returns></returns>
+             <remarks>
+             	Contributed by Michael T, http://about.me/MichaelTran
+             </remarks>
+        </member>
+        <member name="M:TypeExtensions.CreateGenericTypeInstance``1(System.Type,System.Type[])">
+            <summary>
+            Closes the passed generic type with the provided type arguments and returns an instance of the newly constructed type.
+            </summary>
+            <typeparam name="T">The typed type to be returned.</typeparam>
+            <param name="genericType">The open generic type.</param>
+            <param name="typeArguments">The type arguments to close the generic type.</param>
+            <returns>An instance of the constructed type casted to T.</returns>
+        </member>
+        <member name="T:ArrayExtension">
+            <summary>
+            	Extension methods for the array data type
+            </summary>
+        </member>
+        <member name="M:ArrayExtension.IsNullOrEmpty(System.Array)">
+            <summary>
+            	Check if the array is null or empty
+            </summary>
+            <param name = "source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ArrayExtension.WithinIndex(System.Array,System.Int32)">
+            <summary>
+            	Check if the index is within the array
+            </summary>
+            <param name = "source"></param>
+            <param name = "index"></param>
+            <returns></returns>
+             <remarks>
+             	Contributed by Michael T, http://about.me/MichaelTran
+             </remarks>
+        </member>
+        <member name="M:ArrayExtension.WithinIndex(System.Array,System.Int32,System.Int32)">
+            <summary>
+            	Check if the index is within the array
+            </summary>
+            <param name = "source"></param>
+            <param name = "index"></param>
+            <param name="dimension"></param>
+            <returns></returns>
+             <remarks>
+             	Contributed by Michael T, http://about.me/MichaelTran
+             </remarks>
+        </member>
+        <member name="T:ListExtensions">
+            <summary>
+            	Extension methods for all kind of Lists implementing the IList&lt;T&gt; interface
+            </summary>
+        </member>
+        <member name="M:ListExtensions.InsertUnqiue``1(System.Collections.Generic.IList{``0},System.Int32,``0)">
+            <summary>
+            	Inserts an item uniquely to to a list and returns a value whether the item was inserted or not.
+            </summary>
+            <typeparam name = "T">The generic list item type.</typeparam>
+            <param name = "list">The list to be inserted into.</param>
+            <param name = "index">The index to insert the item at.</param>
+            <param name = "item">The item to be added.</param>
+            <returns>Indicates whether the item was inserted or not</returns>
+        </member>
+        <member name="M:ListExtensions.InsertRangeUnique``1(System.Collections.Generic.IList{``0},System.Int32,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            	Inserts a range of items uniquely to a list starting at a given index and returns the amount of items inserted.
+            </summary>
+            <typeparam name = "T">The generic list item type.</typeparam>
+            <param name = "list">The list to be inserted into.</param>
+            <param name = "startIndex">The start index.</param>
+            <param name = "items">The items to be inserted.</param>
+            <returns>The amount if items that were inserted.</returns>
+        </member>
+        <member name="M:ListExtensions.IndexOf``1(System.Collections.Generic.IList{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            	Return the index of the first matching item or -1.
+            </summary>
+            <typeparam name = "T"></typeparam>
+            <param name = "list">The list.</param>
+            <param name = "comparison">The comparison.</param>
+            <returns>The item index</returns>
+        </member>
+        <member name="M:ListExtensions.Join``1(System.Collections.Generic.IList{``0},System.Char)">
+            <summary>
+            	Join all the elements in the list and create a string seperated by the specified char.
+            </summary>
+            <param name = "list">
+            	The list.
+            </param>
+            <param name = "joinChar">
+            	The join char.
+            </param>
+            <typeparam name = "T">
+            </typeparam>
+            <returns>
+            	The resulting string of the elements in the list.
+            </returns>
+            <remarks>
+            	Contributed by Michael T, http://about.me/MichaelTran
+            </remarks>
+        </member>
+        <member name="M:ListExtensions.Join``1(System.Collections.Generic.IList{``0},System.String)">
+            <summary>
+            	Join all the elements in the list and create a string seperated by the specified string.
+            </summary>
+            <param name = "list">
+            	The list.
+            </param>
+            <param name = "joinString">
+            	The join string.
+            </param>
+            <typeparam name = "T">
+            </typeparam>
+            <returns>
+            	The resulting string of the elements in the list.
+            </returns>
+            <remarks>
+            	Contributed by Michael T, http://about.me/MichaelTran
+            	Optimised by Mario Majcica
+            </remarks>
+        </member>
+        <member name="M:ListExtensions.Match``1(System.Collections.Generic.IList{``0},System.String,System.Int32,System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
+            <summary>
+            	Using Relugar Expression, find the top matches for each item in the source specified by the arguments to search.
+            </summary>
+            <param name = "list">
+            	The source.
+            </param>
+            <param name = "searchString">
+            	The search string.
+            </param>
+            <param name = "top">
+            	The top.
+            </param>
+            <param name = "args">
+            	The args.
+            </param>
+            <typeparam name = "T">
+            </typeparam>
+            <returns>
+            	A List of top matches.
+            </returns>
+            <remarks>
+            	Contributed by Michael T, http://about.me/MichaelTran
+            </remarks>
+        </member>
+        <member name="M:ListExtensions.Cast``1(System.Collections.IList)">
+            <summary>
+            	Cast this list into a List
+            </summary>
+            <param name = "source"></param>
+            <typeparam name = "T"></typeparam>
+            <returns></returns>
+             <remarks>
+             	Contributed by Michael T, http://about.me/MichaelTran
+             </remarks>
+        </member>
+        <member name="M:ListExtensions.Merge``1(System.Collections.Generic.List{``0}[])">
+            <summary>The merge.</summary>
+            <param name="lists">The lists.</param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <remarks>
+            	Contributed by Michael T, http://about.me/MichaelTran
+            </remarks>
+        </member>
+        <member name="M:ListExtensions.Merge``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Collections.Generic.List{``0}[])">
+            <summary>The merge.</summary>
+            <param name="match">The match.</param>
+            <param name="lists">The lists.</param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <remarks>
+            	Contributed by Michael T, http://about.me/MichaelTran
+            </remarks>
+        </member>
+        <member name="M:ListExtensions.Merge``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>The merge.</summary>
+            <param name="list1">The list 1.</param>
+            <param name="list2">The list 2.</param>
+            <param name="match">The match.</param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <remarks>
+            	Contributed by Michael T, http://about.me/MichaelTran
+            </remarks>
+        </member>
+        <member name="M:ListExtensions.Merge``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})">
+            <summary>The merge.</summary>
+            <param name="list1">The list 1.</param>
+            <param name="list2">The list 2.</param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <remarks>
+            	Contributed by Michael T, http://about.me/MichaelTran
+            </remarks>
+        </member>
+        <member name="T:StringArrayExtensions">
+            <summary>
+            	Extension methods for string[]
+            </summary>
+        </member>
+        <member name="M:StringArrayExtensions.ToString(System.String[],System.String,System.String,System.String,System.String)">
+            <summary>
+            	Returns a combined value of strings from a string array
+            </summary>
+            <param name="values">The values.</param>
+            <param name="prefix">The prefix.</param>
+            <param name="suffix">The suffix.</param>
+            <param name="quotation">The quotation (or null).</param>
+            <param name="separator">The separator.</param>
+            <returns>
+            	A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+            <remarks>
+            	Contributed by blaumeister, http://www.codeplex.com/site/users/view/blaumeiser
+            </remarks>
+        </member>
+        <member name="T:ComparableExtensions">
+            <summary>
+            	Extension methods for all comparable objects eg. string, DateTime, numeric values ...
+            </summary>
+        </member>
+        <member name="M:ComparableExtensions.IsBetween``1(``0,``0,``0)">
+            <summary>
+            	Determines whether the specified value is between the the defined minimum and maximum range (including those values).
+            </summary>
+            <typeparam name = "T"></typeparam>
+            <param name = "value">The value.</param>
+            <param name = "minValue">The minimum value.</param>
+            <param name = "maxValue">The maximum value.</param>
+            <returns>
+            	<c>true</c> if the specified value is between min and max; otherwise, <c>false</c>.
+            </returns>
+            <example>
+            	var value = 5;
+            	if(value.IsBetween(1, 10)) { 
+            	// ... 
+            	}
+            </example>
+        </member>
+        <member name="M:ComparableExtensions.IsBetween``1(``0,``0,``0,System.Collections.Generic.IComparer{``0})">
+            <summary>
+            	Determines whether the specified value is between the the defined minimum and maximum range (including those values).
+            </summary>
+            <typeparam name = "T"></typeparam>
+            <param name = "value">The value.</param>
+            <param name = "minValue">The minimum value.</param>
+            <param name = "maxValue">The maximum value.</param>
+            <param name = "comparer">An optional comparer to be used instead of the types default comparer.</param>
+            <returns>
+            	<c>true</c> if the specified value is between min and max; otherwise, <c>false</c>.
+            </returns>
+            <example>
+            	var value = 5;
+            	if(value.IsBetween(1, 10)) {
+            	// ...
+            	}
+            </example>
+        </member>
+        <member name="T:ObjectExtensions">
+            <summary>
+            	Extension methods for the root data type object
+            </summary>
+        </member>
+        <member name="M:ObjectExtensions.EqualsAny``1(``0,``0[])">
+            <summary>
+            	Determines whether the object is equal to any of the provided values.
+            </summary>
+            <typeparam name = "T"></typeparam>
+            <param name = "obj">The object to be compared.</param>
+            <param name = "values">The values to compare with the object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ObjectExtensions.EqualsNone``1(``0,``0[])">
+            <summary>
+            	Determines whether the object is equal to none of the provided values.
+            </summary>
+            <typeparam name = "T"></typeparam>
+            <param name = "obj">The object to be compared.</param>
+            <param name = "values">The values to compare with the object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ObjectExtensions.ConvertTo``1(System.Object)">
+            <summary>
+            	Converts an object to the specified target type or returns the default value.
+            </summary>
+            <typeparam name = "T"></typeparam>
+            <param name = "value">The value.</param>
+            <returns>The target type</returns>
+        </member>
+        <member name="M:ObjectExtensions.ConvertTo``1(System.Object,``0)">
+            <summary>
+            	Converts an object to the specified target type or returns the default value.
+            </summary>
+            <typeparam name = "T"></typeparam>
+            <param name = "value">The value.</param>
+            <param name = "defaultValue">The default value.</param>
+            <returns>The target type</returns>
+        </member>
+        <member name="M:ObjectExtensions.ConvertTo``1(System.Object,``0,System.Boolean)">
+            <summary>
+            	Converts an object to the specified target type or returns the default value. Any exceptions are optionally ignored.
+            </summary>
+            <typeparam name = "T"></typeparam>
+            <param name = "value">The value.</param>
+            <param name = "defaultValue">The default value.</param>
+            <param name = "ignoreException">if set to <c>true</c> ignore any exception.</param>
+            <returns>The target type</returns>
+        </member>
+        <member name="M:ObjectExtensions.CanConvertTo``1(System.Object)">
+            <summary>
+            	Determines whether the value can (in theory) be converted to the specified target type.
+            </summary>
+            <typeparam name = "T"></typeparam>
+            <param name = "value">The value.</param>
+            <returns>
+            	<c>true</c> if this instance can be convert to the specified target type; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ObjectExtensions.ConvertTo``1(``0)">
+            <summary>
+            	Converts the specified value to a different type.
+            </summary>
+            <typeparam name = "T"></typeparam>
+            <param name = "value">The value.</param>
+            <returns>An universal converter suppliying additional target conversion methods</returns>
+            <example>
+            	<code>
+            		var value = "123";
+            		var numeric = value.ConvertTo().ToInt32();
+            	</code>
+            </example>
+        </member>
+        <member name="M:ObjectExtensions.InvokeMethod(System.Object,System.String,System.Object[])">
+            <summary>
+            	Dynamically invokes a method using reflection
+            </summary>
+            <param name = "obj">The object to perform on.</param>
+            <param name = "methodName">The name of the method.</param>
+            <param name = "parameters">The parameters passed to the method.</param>
+            <returns>The return value</returns>
+            <example>
+            	<code>
+            		var type = Type.GetType("System.IO.FileInfo, mscorlib");
+            		var file = type.CreateInstance(@"c:\autoexec.bat");
+            		if(file.GetPropertyValue&lt;bool&gt;("Exists")) {
+            		var reader = file.InvokeMethod&lt;StreamReader&gt;("OpenText");
+            		Console.WriteLine(reader.ReadToEnd());
+            		reader.Close();
+            		}
+            	</code>
+            </example>
+        </member>
+        <member name="M:ObjectExtensions.InvokeMethod``1(System.Object,System.String,System.Object[])">
+            <summary>
+            	Dynamically invokes a method using reflection and returns its value in a typed manner
+            </summary>
+            <typeparam name = "T">The expected return data types</typeparam>
+            <param name = "obj">The object to perform on.</param>
+            <param name = "methodName">The name of the method.</param>
+            <param name = "parameters">The parameters passed to the method.</param>
+            <returns>The return value</returns>
+            <example>
+            	<code>
+            		var type = Type.GetType("System.IO.FileInfo, mscorlib");
+            		var file = type.CreateInstance(@"c:\autoexec.bat");
+            		if(file.GetPropertyValue&lt;bool&gt;("Exists")) {
+            		var reader = file.InvokeMethod&lt;StreamReader&gt;("OpenText");
+            		Console.WriteLine(reader.ReadToEnd());
+            		reader.Close();
+            		}
+            	</code>
+            </example>
+        </member>
+        <member name="M:ObjectExtensions.GetPropertyValue(System.Object,System.String)">
+            <summary>
+            	Dynamically retrieves a property value.
+            </summary>
+            <param name = "obj">The object to perform on.</param>
+            <param name = "propertyName">The Name of the property.</param>
+            <returns>The property value.</returns>
+            <example>
+            	<code>
+            		var type = Type.GetType("System.IO.FileInfo, mscorlib");
+            		var file = type.CreateInstance(@"c:\autoexec.bat");
+            		if(file.GetPropertyValue&lt;bool&gt;("Exists")) {
+            		var reader = file.InvokeMethod&lt;StreamReader&gt;("OpenText");
+            		Console.WriteLine(reader.ReadToEnd());
+            		reader.Close();
+            		}
+            	</code>
+            </example>
+        </member>
+        <member name="M:ObjectExtensions.GetPropertyValue``1(System.Object,System.String)">
+            <summary>
+            	Dynamically retrieves a property value.
+            </summary>
+            <typeparam name = "T">The expected return data type</typeparam>
+            <param name = "obj">The object to perform on.</param>
+            <param name = "propertyName">The Name of the property.</param>
+            <returns>The property value.</returns>
+            <example>
+            	<code>
+            		var type = Type.GetType("System.IO.FileInfo, mscorlib");
+            		var file = type.CreateInstance(@"c:\autoexec.bat");
+            		if(file.GetPropertyValue&lt;bool&gt;("Exists")) {
+            		var reader = file.InvokeMethod&lt;StreamReader&gt;("OpenText");
+            		Console.WriteLine(reader.ReadToEnd());
+            		reader.Close();
+            		}
+            	</code>
+            </example>
+        </member>
+        <member name="M:ObjectExtensions.GetPropertyValue``1(System.Object,System.String,``0)">
+            <summary>
+            	Dynamically retrieves a property value.
+            </summary>
+            <typeparam name = "T">The expected return data type</typeparam>
+            <param name = "obj">The object to perform on.</param>
+            <param name = "propertyName">The Name of the property.</param>
+            <param name = "defaultValue">The default value to return.</param>
+            <returns>The property value.</returns>
+            <example>
+            	<code>
+            		var type = Type.GetType("System.IO.FileInfo, mscorlib");
+            		var file = type.CreateInstance(@"c:\autoexec.bat");
+            		if(file.GetPropertyValue&lt;bool&gt;("Exists")) {
+            		var reader = file.InvokeMethod&lt;StreamReader&gt;("OpenText");
+            		Console.WriteLine(reader.ReadToEnd());
+            		reader.Close();
+            		}
+            	</code>
+            </example>
+        </member>
+        <member name="M:ObjectExtensions.SetPropertyValue(System.Object,System.String,System.Object)">
+            <summary>
+            	Dynamically sets a property value.
+            </summary>
+            <param name = "obj">The object to perform on.</param>
+            <param name = "propertyName">The Name of the property.</param>
+            <param name = "value">The value to be set.</param>
+        </member>
+        <member name="M:ObjectExtensions.GetAttribute``1(System.Object)">
+            <summary>
+            	Gets the first matching attribute defined on the data type.
+            </summary>
+            <typeparam name = "T">The attribute type tp look for.</typeparam>
+            <param name = "obj">The object to look on.</param>
+            <returns>The found attribute</returns>
+        </member>
+        <member name="M:ObjectExtensions.GetAttribute``1(System.Object,System.Boolean)">
+            <summary>
+            	Gets the first matching attribute defined on the data type.
+            </summary>
+            <typeparam name = "T">The attribute type tp look for.</typeparam>
+            <param name = "obj">The object to look on.</param>
+            <param name = "includeInherited">if set to <c>true</c> includes inherited attributes.</param>
+            <returns>The found attribute</returns>
+        </member>
+        <member name="M:ObjectExtensions.GetAttributes``1(System.Object)">
+            <summary>
+            	Gets all matching attribute defined on the data type.
+            </summary>
+            <typeparam name = "T">The attribute type tp look for.</typeparam>
+            <param name = "obj">The object to look on.</param>
+            <returns>The found attributes</returns>
+        </member>
+        <member name="M:ObjectExtensions.GetAttributes``1(System.Object,System.Boolean)">
+            <summary>
+            	Gets all matching attribute defined on the data type.
+            </summary>
+            <typeparam name = "T">The attribute type tp look for.</typeparam>
+            <param name = "obj">The object to look on.</param>
+            <param name = "includeInherited">if set to <c>true</c> includes inherited attributes.</param>
+            <returns>The found attributes</returns>
+        </member>
+        <member name="M:ObjectExtensions.IsOfType``1(System.Object)">
+            <summary>
+            	Determines whether the object is excactly of the passed generic type.
+            </summary>
+            <typeparam name = "T">The target type.</typeparam>
+            <param name = "obj">The object to check.</param>
+            <returns>
+            	<c>true</c> if the object is of the specified type; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ObjectExtensions.IsOfType(System.Object,System.Type)">
+            <summary>
+            	Determines whether the object is excactly of the passed type
+            </summary>
+            <param name = "obj">The object to check.</param>
+            <param name = "type">The target type.</param>
+            <returns>
+            	<c>true</c> if the object is of the specified type; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ObjectExtensions.IsOfTypeOrInherits``1(System.Object)">
+            <summary>
+            	Determines whether the object is of the passed generic type or inherits from it.
+            </summary>
+            <typeparam name = "T">The target type.</typeparam>
+            <param name = "obj">The object to check.</param>
+            <returns>
+            	<c>true</c> if the object is of the specified type; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ObjectExtensions.IsOfTypeOrInherits(System.Object,System.Type)">
+            <summary>
+            	Determines whether the object is of the passed type or inherits from it.
+            </summary>
+            <param name = "obj">The object to check.</param>
+            <param name = "type">The target type.</param>
+            <returns>
+            	<c>true</c> if the object is of the specified type; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ObjectExtensions.IsAssignableTo``1(System.Object)">
+            <summary>
+            	Determines whether the object is assignable to the passed generic type.
+            </summary>
+            <typeparam name = "T">The target type.</typeparam>
+            <param name = "obj">The object to check.</param>
+            <returns>
+            	<c>true</c> if the object is assignable to the specified type; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ObjectExtensions.IsAssignableTo(System.Object,System.Type)">
+            <summary>
+            	Determines whether the object is assignable to the passed type.
+            </summary>
+            <param name = "obj">The object to check.</param>
+            <param name = "type">The target type.</param>
+            <returns>
+            	<c>true</c> if the object is assignable to the specified type; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ObjectExtensions.GetTypeDefaultValue``1(``0)">
+            <summary>
+            	Gets the type default value for the underlying data type, in case of reference types: null
+            </summary>
+            <typeparam name = "T"></typeparam>
+            <param name = "value">The value.</param>
+            <returns>The default value</returns>
+        </member>
+        <member name="M:ObjectExtensions.ToDatabaseValue``1(``0)">
+            <summary>
+            	Converts the specified value to a database value and returns DBNull.Value if the value equals its default.
+            </summary>
+            <typeparam name = "T"></typeparam>
+            <param name = "value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ObjectExtensions.CastTo``1(System.Object)">
+            <summary>
+            	Cast an object to the given type. Usefull especially for anonymous types.
+            </summary>
+            <typeparam name = "T">The type to cast to</typeparam>
+            <param name = "value">The object to case</param>
+            <returns>
+            	the casted type or null if casting is not possible.
+            </returns>
+            <remarks>
+            	Contributed by blaumeister, http://www.codeplex.com/site/users/view/blaumeiser
+            </remarks>
+        </member>
+        <member name="M:ObjectExtensions.IsNull(System.Object)">
+            <summary>
+            	Returns TRUE, if specified target reference is equals with null reference.
+            	Othervise returns FALSE.
+            </summary>
+            <param name = "target">Target reference. Can be null.</param>
+            <remarks>
+            	Some types has overloaded '==' and '!=' operators.
+            	So the code "null == ((MyClass)null)" can returns <c>false</c>.
+            	The most correct way how to test for null reference is using "System.Object.ReferenceEquals(object, object)" method.
+            	However the notation with ReferenceEquals method is long and uncomfortable - this extension method solve it.
+            
+            	Contributed by tencokacistromy, http://www.codeplex.com/site/users/view/tencokacistromy
+            </remarks>
+            <example>
+            	object someObject = GetSomeObject();
+            	if ( someObject.IsNull() ) { /* the someObject is null */ }
+            	else { /* the someObject is not null */ }
+            </example>
+        </member>
+        <member name="M:ObjectExtensions.IsNull``1(``0)">
+            <summary>
+            	Returns TRUE, if specified target reference is equals with null reference.
+            	Othervise returns FALSE.
+            </summary>
+            <typeparam name = "T">Type of target.</typeparam>
+            <param name = "target">Target reference. Can be null.</param>
+            <remarks>
+            	Some types has overloaded '==' and '!=' operators.
+            	So the code "null == ((MyClass)null)" can returns <c>false</c>.
+            	The most correct way how to test for null reference is using "System.Object.ReferenceEquals(object, object)" method.
+            	However the notation with ReferenceEquals method is long and uncomfortable - this extension method solve it.
+            
+            	Contributed by tencokacistromy, http://www.codeplex.com/site/users/view/tencokacistromy
+            </remarks>
+            <example>
+            	MyClass someObject = GetSomeObject();
+            	if ( someObject.IsNull() ) { /* the someObject is null */ }
+            	else { /* the someObject is not null */ }
+            </example>
+        </member>
+        <member name="M:ObjectExtensions.IsNotNull(System.Object)">
+            <summary>
+            	Returns TRUE, if specified target reference is equals with null reference.
+            	Othervise returns FALSE.
+            </summary>
+            <param name = "target">Target reference. Can be null.</param>
+            <remarks>
+            	Some types has overloaded '==' and '!=' operators.
+            	So the code "null == ((MyClass)null)" can returns <c>false</c>.
+            	The most correct way how to test for null reference is using "System.Object.ReferenceEquals(object, object)" method.
+            	However the notation with ReferenceEquals method is long and uncomfortable - this extension method solve it.
+            
+            	Contributed by tencokacistromy, http://www.codeplex.com/site/users/view/tencokacistromy
+            </remarks>
+            <example>
+            	object someObject = GetSomeObject();
+            	if ( someObject.IsNotNull() ) { /* the someObject is not null */ }
+            	else { /* the someObject is null */ }
+            </example>
+        </member>
+        <member name="M:ObjectExtensions.IsNotNull``1(``0)">
+            <summary>
+            	Returns TRUE, if specified target reference is equals with null reference.
+            	Othervise returns FALSE.
+            </summary>
+            <typeparam name = "T">Type of target.</typeparam>
+            <param name = "target">Target reference. Can be null.</param>
+            <remarks>
+            	Some types has overloaded '==' and '!=' operators.
+            	So the code "null == ((MyClass)null)" can returns <c>false</c>.
+            	The most correct way how to test for null reference is using "System.Object.ReferenceEquals(object, object)" method.
+            	However the notation with ReferenceEquals method is long and uncomfortable - this extension method solve it.
+            
+            	Contributed by tencokacistromy, http://www.codeplex.com/site/users/view/tencokacistromy
+            </remarks>
+            <example>
+            	MyClass someObject = GetSomeObject();
+            	if ( someObject.IsNotNull() ) { /* the someObject is not null */ }
+            	else { /* the someObject is null */ }
+            </example>
+        </member>
+        <member name="M:ObjectExtensions.AsString(System.Object)">
+            <summary>
+            	If target is null, returns null.
+            	Othervise returns string representation of target using current culture format provider.
+            </summary>
+            <param name = "target">Target transforming to string representation. Can be null.</param>
+            <example>
+            	float? number = null;
+            	string text1 = number.AsString();
+            
+            	number = 15.7892;
+            	string text2 = number.AsString();
+            </example>
+            <remarks>
+            	Contributed by tencokacistromy, http://www.codeplex.com/site/users/view/tencokacistromy
+            </remarks>
+        </member>
+        <member name="M:ObjectExtensions.AsString(System.Object,System.IFormatProvider)">
+            <summary>
+            	If target is null, returns null.
+            	Othervise returns string representation of target using specified format provider.
+            </summary>
+            <param name = "target">Target transforming to string representation. Can be null.</param>
+            <param name = "formatProvider">Format provider used to transformation target to string representation.</param>
+            <example>
+            	CultureInfo czech = new CultureInfo("cs-CZ");
+            
+            	float? number = null;
+            	string text1 = number.AsString( czech );
+            
+            	number = 15.7892;
+            	string text2 = number.AsString( czech );
+            </example>
+            <remarks>
+            	Contributed by tencokacistromy, http://www.codeplex.com/site/users/view/tencokacistromy
+            </remarks>
+        </member>
+        <member name="M:ObjectExtensions.AsInvariantString(System.Object)">
+            <summary>
+            	If target is null, returns null.
+            	Othervise returns string representation of target using invariant format provider.
+            </summary>
+            <param name = "target">Target transforming to string representation. Can be null.</param>
+            <example>
+            	float? number = null;
+            	string text1 = number.AsInvariantString();
+            
+            	number = 15.7892;
+            	string text2 = number.AsInvariantString();
+            </example>
+            <remarks>
+            	Contributed by tencokacistromy, http://www.codeplex.com/site/users/view/tencokacistromy
+            </remarks>
+        </member>
+        <member name="M:ObjectExtensions.NotNull``1(``0,``0)">
+            <summary>
+            	If target is null reference, returns notNullValue.
+            	Othervise returns target.
+            </summary>
+            <typeparam name = "T">Type of target.</typeparam>
+            <param name = "target">Target which is maybe null. Can be null.</param>
+            <param name = "notNullValue">Value used instead of null.</param>
+            <example>
+            	const int DEFAULT_NUMBER = 123;
+            
+            	int? number = null;
+            	int notNullNumber1 = number.NotNull( DEFAULT_NUMBER ).Value; // returns 123
+            
+            	number = 57;
+            	int notNullNumber2 = number.NotNull( DEFAULT_NUMBER ).Value; // returns 57
+            </example>
+            <remarks>
+            	Contributed by tencokacistromy, http://www.codeplex.com/site/users/view/tencokacistromy
+            </remarks>
+        </member>
+        <member name="M:ObjectExtensions.NotNull``1(``0,System.Func{``0})">
+            <summary>
+            	If target is null reference, returns result from notNullValueProvider.
+            	Othervise returns target.
+            </summary>
+            <typeparam name = "T">Type of target.</typeparam>
+            <param name = "target">Target which is maybe null. Can be null.</param>
+            <param name = "notNullValueProvider">Delegate which return value is used instead of null.</param>
+            <example>
+            	int? number = null;
+            	int notNullNumber1 = number.NotNull( ()=> GetRandomNumber(10, 20) ).Value; // returns random number from 10 to 20
+            
+            	number = 57;
+            	int notNullNumber2 = number.NotNull( ()=> GetRandomNumber(10, 20) ).Value; // returns 57
+            </example>
+            <remarks>
+            	Contributed by tencokacistromy, http://www.codeplex.com/site/users/view/tencokacistromy
+            </remarks>
+        </member>
+        <member name="M:ObjectExtensions.ToStringDump(System.Object,System.Reflection.BindingFlags,System.Int32)">
+            <summary>
+            	get a string representation of a given object.
+            </summary>
+            <param name = "o">the object to dump</param>
+            <param name = "flags">BindingFlags to use for reflection</param>
+            <param name = "maxArrayElements">Number of elements to show for IEnumerables</param>
+            <returns></returns>
+        </member>
+        <member name="M:ObjectExtensions.ToHTMLTable(System.Object,System.Reflection.BindingFlags,System.Int32)">
+            <summary>
+            	get a html-table representation of a given object.
+            </summary>
+            <param name = "o">the object to dump</param>
+            <param name = "flags">BindingFlags to use for reflection</param>
+            <param name = "maxArrayElements">Number of elements to show for IEnumerables</param>
+            <returns></returns>
+        </member>
+        <member name="M:ObjectExtensions.ToXElement(System.Object,System.Reflection.BindingFlags,System.Int32)">
+            <summary>
+            	get a XElement representation of a given object.
+            </summary>
+            <param name = "o">the object to dump</param>
+            <param name = "flags">BindingFlags to use for reflection</param>
+            <param name = "maxArrayElements">Number of elements to show for IEnumerables</param>
+            <returns></returns>
+        </member>
+        <member name="M:ObjectExtensions.DynamicCast(System.Object,System.Type)">
+            <summary>
+            	Cast an object to the given type. Usefull especially for anonymous types.
+            </summary>
+            <param name="obj">The object to be cast</param>
+            <param name="targetType">The type to cast to</param>
+            <returns>
+            	the casted type or null if casting is not possible.
+            </returns>
+            <remarks>
+            	Contributed by Michael T, http://about.me/MichaelTran
+            </remarks>
+        </member>
+        <member name="M:ObjectExtensions.CastAs``1(System.Object)">
+            <summary>
+            Cast an object to the given type. Usefull especially for anonymous types.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj">The object to be cast</param>
+            <returns>
+            the casted type or null if casting is not possible.
+            </returns>
+            <remarks>
+            Contributed by Michael T, http://about.me/MichaelTran
+            </remarks>
+        </member>
+        <member name="M:ObjectExtensions.CountLoopsToNull``1(``0,System.Func{``0,``0})">
+            <summary>
+            Counts and returns the recursive execution of the passed function until it returns null.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="item">The item to start peforming on.</param>
+            <param name="function">The function to be executed.</param>
+            <returns>The number of executions until the function returned null</returns>
+        </member>
+        <member name="M:ObjectExtensions.FindTypeByRecursion``2(``0,System.Func{``0,``0})">
+            <summary>
+            Finds a type instance using a recursive call. The method is useful to find specific parents for example.
+            </summary>
+            <typeparam name="T">The source type to perform on.</typeparam>
+            <typeparam name="K">The targte type to be returned</typeparam>
+            <param name="item">The item to start performing on.</param>
+            <param name="function">The function to be executed.</param>
+            <returns>An target type instance or null.</returns>
+            <example><code>
+            var tree = ...
+            var node = tree.FindNodeByValue("");
+            var parentByType = node.FindTypeByRecursion%lt;TheType&gt;(n => n.Parent);
+            </code></example>
+        </member>
+        <member name="M:ObjectExtensions.Clone``1(``0)">
+            <summary>
+            Perform a deep Copy of the object.
+            </summary>
+            <typeparam name="T">The type of object being copied.</typeparam>
+            <param name="source">The object instance to copy.</param>
+            <returns>The copied object.</returns>
+        </member>
+        <member name="T:CollectionExtensions">
+            <summary>
+            	Extension methods for all kind of Collections implementing the ICollection&lt;T&gt; interface
+            </summary>
+        </member>
+        <member name="M:CollectionExtensions.AddUnique``1(System.Collections.Generic.ICollection{``0},``0)">
+            <summary>
+            	Adds a value uniquely to to a collection and returns a value whether the value was added or not.
+            </summary>
+            <typeparam name = "T">The generic collection value type</typeparam>
+            <param name = "collection">The collection.</param>
+            <param name = "value">The value to be added.</param>
+            <returns>Indicates whether the value was added or not</returns>
+            <example>
+            	<code>
+            		list.AddUnique(1); // returns true;
+            		list.AddUnique(1); // returns false the second time;
+            	</code>
+            </example>
+        </member>
+        <member name="M:CollectionExtensions.AddRangeUnique``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            	Adds a range of value uniquely to a collection and returns the amount of values added.
+            </summary>
+            <typeparam name = "T">The generic collection value type.</typeparam>
+            <param name = "collection">The collection.</param>
+            <param name = "values">The values to be added.</param>
+            <returns>The amount if values that were added.</returns>
+        </member>
+        <member name="M:CollectionExtensions.RemoveAll``1(System.Collections.Generic.ICollection{``0},System.Predicate{``0})">
+            <summary>
+            	Remove an item from the collection with predicate
+            </summary>
+            <param name="collection"></param>
+            <param name="predicate"></param>
+            <typeparam name="T"></typeparam>
+            <exception cref="T:System.ArgumentNullException"></exception>
+             <remarks>
+             	Contributed by Michael T, http://about.me/MichaelTran
+             </remarks>
+        </member>
+    </members>
+</doc>

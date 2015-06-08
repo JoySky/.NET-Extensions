@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PGK.Extensions.Windows</name>
+    </assembly>
+    <members>
+        <member name="T:UIElementExtensions">
+            <summary>
+              Extension methods for the System.Windows.UIElement class
+            </summary>
+        </member>
+        <member name="M:UIElementExtensions.RenderToBitmap(System.Windows.UIElement)">
+            <summary>
+              Renders the ui element into a bitmap frame.
+            </summary>
+            <param name = "element">The UI element.</param>
+            <returns>The created bitmap frame</returns>
+        </member>
+        <member name="M:UIElementExtensions.RenderToBitmap(System.Windows.UIElement,System.Double)">
+            <summary>
+              Renders the ui element into a bitmap frame using the specified scale.
+            </summary>
+            <param name = "element">The UI element.</param>
+            <param name = "scale">The scale (default: 1).</param>
+            <returns>The created bitmap frame</returns>
+        </member>
+        <member name="T:BitmapSourceExtensions">
+            <summary>
+              Extension methods for the System.Windows.Media.Imaging.BitmapSource class
+            </summary>
+        </member>
+        <member name="M:BitmapSourceExtensions.ToBitmap(System.Windows.Media.Imaging.BitmapSource)">
+            <summary>
+              Create a System.Drawing.Bitmap from the passed WPF BitmapSource instance
+            </summary>
+            <param name = "bitmapSource">The bitmap source.</param>
+            <returns>The generated bitmap</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,410 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PGK.Extensions.Web</name>
+    </assembly>
+    <members>
+        <member name="T:HttpSessionStateExtensions">
+            <summary>
+              Extensions classes for the ASP.NET Session State class
+            </summary>
+        </member>
+        <member name="M:HttpSessionStateExtensions.Get``1(System.Web.SessionState.HttpSessionState,System.String)">
+            <summary>
+              Returns a typed value from the ASP.NET session state
+            </summary>
+            <typeparam name = "T">The generic type to be returned</typeparam>
+            <param name = "state">The session state.</param>
+            <param name = "key">The session state key.</param>
+            <returns>The session state value.</returns>
+            <example>
+              <code>
+                public List&lt;string&gt; StringValues {
+                get { return this.Session.Ensure&lt;List&lt;string&gt;&gt;("StringValues"); }
+                set { this.ViewState.Set("StringValues", value); }
+                }
+              </code>
+            </example>
+        </member>
+        <member name="M:HttpSessionStateExtensions.Get``1(System.Web.SessionState.HttpSessionState,System.String,``0)">
+            <summary>
+              Returns a typed value from the ASP.NET session state or the provided default value
+            </summary>
+            <typeparam name = "T">The generic type to be returned</typeparam>
+            <param name = "state">The session state.</param>
+            <param name = "key">The session state key.</param>
+            <param name = "defaultValue">The default value to be returned.</param>
+            <returns>The session state value.</returns>
+            <example>
+              <code>
+                public List&lt;string&gt; StringValues {
+                get { return this.Session.Ensure&lt;List&lt;string&gt;&gt;("StringValues"); }
+                set { this.ViewState.Set("StringValues", value); }
+                }
+              </code>
+            </example>
+        </member>
+        <member name="M:HttpSessionStateExtensions.Ensure``1(System.Web.SessionState.HttpSessionState,System.String)">
+            <summary>
+              Ensures a specific key to be either already in the ASP.NET session state or to be newly created
+            </summary>
+            <typeparam name = "T">The generic type to be returned</typeparam>
+            <param name = "state">The session state.</param>
+            <param name = "key">The session state key.</param>
+            <returns>The session state value.</returns>
+            <example>
+              <code>
+                public List&lt;string&gt; StringValues {
+                get { return this.Session.Ensure&lt;List&lt;string&gt;&gt;("StringValues"); }
+                set { this.ViewState.Set("StringValues", value); }
+                }
+              </code>
+            </example>
+        </member>
+        <member name="M:HttpSessionStateExtensions.Set(System.Web.SessionState.HttpSessionState,System.String,System.Object)">
+            <summary>
+              Sets the specified value into the ASP.NET session state.
+            </summary>
+            <param name = "state">The session state.</param>
+            <param name = "key">The session state key.</param>
+            <param name = "value">The new session state value.</param>
+            <example>
+              <code>
+                public List&lt;string&gt; StringValues {
+                get { return this.Session.Ensure&lt;List&lt;string&gt;&gt;("StringValues"); }
+                set { this.ViewState.Set("StringValues", value); }
+                }
+              </code>
+            </example>
+        </member>
+        <member name="T:StateBagExtensions">
+            <summary>
+              Extensions classes for the ASP.NET ViewState StateBag class
+            </summary>
+        </member>
+        <member name="M:StateBagExtensions.Get``1(System.Web.UI.StateBag,System.String)">
+            <summary>
+              Returns a typed value from the ASP.NET ViewState
+            </summary>
+            <typeparam name = "T">The generic type to be returned</typeparam>
+            <param name = "state">The ViewState.</param>
+            <param name = "key">The ViewState key.</param>
+            <returns>The ViewState value.</returns>
+            <example>
+              <code>
+                public string Text {
+                get { return this.ViewState.Get&lt;string&gt;("Text", "DefaultText"); }
+                set { this.ViewState.Set("Text", value); }
+                }
+              </code>
+            </example>
+        </member>
+        <member name="M:StateBagExtensions.Get``1(System.Web.UI.StateBag,System.String,``0)">
+            <summary>
+              Returns a typed value from the ASP.NET ViewState or the provided default value
+            </summary>
+            <typeparam name = "T">The generic type to be returned</typeparam>
+            <param name = "state">The ViewState.</param>
+            <param name = "key">The ViewState key.</param>
+            <param name = "defaultValue">The default value to be returned.</param>
+            <returns>The ViewState value.</returns>
+            <example>
+              <code>
+                public string Text {
+                get { return this.ViewState.Get&lt;string&gt;("Text", "DefaultText"); }
+                set { this.ViewState.Set("Text", value); }
+                }
+              </code>
+            </example>
+        </member>
+        <member name="M:StateBagExtensions.Ensure``1(System.Web.UI.StateBag,System.String)">
+            <summary>
+              Ensures a specific key to be either already in the ASP.NET ViewState or to be newly created
+            </summary>
+            <typeparam name = "T">The generic type to be returned</typeparam>
+            <param name = "state">The ViewState.</param>
+            <param name = "key">The ViewState key.</param>
+            <returns>The ViewState value.</returns>
+            <example>
+              <code>
+                public string Text {
+                get { return this.ViewState.Get&lt;string&gt;("Text", "DefaultText"); }
+                set { this.ViewState.Set("Text", value); }
+                }
+              </code>
+            </example>
+        </member>
+        <member name="M:StateBagExtensions.Set(System.Web.UI.StateBag,System.String,System.Object)">
+            <summary>
+              Sets the specified value into the ASP.NET ViewState.
+            </summary>
+            <param name = "state">The ViewState.</param>
+            <param name = "key">The ViewState key.</param>
+            <param name = "value">The new ViewState value.</param>
+            <example>
+              <code>
+                public string Text {
+                get { return this.ViewState.Get&lt;string&gt;("Text", "DefaultText"); }
+                set { this.ViewState.Set("Text", value); }
+                }
+              </code>
+            </example>
+        </member>
+        <member name="T:UriQueryString">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:UriQueryString.values">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:UriQueryString.ToString">
+            <summary>
+              Returns a <see cref = "T:System.String" /> that represents the current <see cref = "T:System.Object" />.
+            </summary>
+            <returns>
+              A <see cref = "T:System.String" /> that represents the current <see cref = "T:System.Object" />.
+            </returns>
+        </member>
+        <member name="M:UriQueryString.ToString(System.Uri)">
+            <summary>
+              Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <param name="baseUrl">The base URL.</param>
+            <returns>
+              A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="M:UriQueryString.ToString(System.String)">
+            <summary>
+              Returns a <see cref = "T:System.String" /> that represents the current <see cref = "T:System.Object" />.
+            </summary>
+            <param name = "baseUrl">The base URL.</param>
+            <returns>
+              A <see cref = "T:System.String" /> that represents the current <see cref = "T:System.Object" />.
+            </returns>
+        </member>
+        <member name="M:UriQueryString.Add(System.String,System.String)">
+            <summary>
+              Adds the specified key.
+            </summary>
+            <param name = "key">The key.</param>
+            <param name = "value">The value.</param>
+        </member>
+        <member name="T:HttpResponseExtensions">
+            <summary>
+              Extension methods for the HttpResponse class
+            </summary>
+        </member>
+        <member name="M:HttpResponseExtensions.Reload(System.Web.HttpResponse)">
+            <summary>
+              Reloads the current page / handler by performing a redirect to the current url
+            </summary>
+            <param name = "response">The HttpResponse to perform on.</param>
+        </member>
+        <member name="M:HttpResponseExtensions.Redirect(System.Web.HttpResponse,System.String,System.Object[])">
+            <summary>
+              Performs a response redirect and allows the url to be populated with string format parameters.
+            </summary>
+            <param name = "response">The HttpResponse to perform on.</param>
+            <param name = "urlFormat">The URL including string.Format placeholders.</param>
+            <param name = "values">The values to the populated.</param>
+        </member>
+        <member name="M:HttpResponseExtensions.Redirect(System.Web.HttpResponse,System.String,System.Boolean,System.Object[])">
+            <summary>
+              Performs a response redirect and allows the url to be populated with string format parameters.
+            </summary>
+            <param name = "response">The HttpResponse to perform on.</param>
+            <param name = "urlFormat">The URL including string.Format placeholders.</param>
+            <param name = "endResponse">If set to <c>true</c> the response will be terminated.</param>
+            <param name = "values">The values to the populated.</param>
+        </member>
+        <member name="M:HttpResponseExtensions.Redirect(System.Web.HttpResponse,System.String,UriQueryString)">
+            <summary>
+              Performs a response redirect and allows the url to be populated with a query string.
+            </summary>
+            <param name = "response">The HttpResponse to perform on.</param>
+            <param name = "url">The URL.</param>
+            <param name = "queryString">The query string.</param>
+        </member>
+        <member name="M:HttpResponseExtensions.Redirect(System.Web.HttpResponse,System.String,UriQueryString,System.Boolean)">
+            <summary>
+              Performs a response redirect and allows the url to be populated with a query string.
+            </summary>
+            <param name = "response">The HttpResponse to perform on.</param>
+            <param name = "url">The URL.</param>
+            <param name = "queryString">The query string.</param>
+            <param name = "endResponse">If set to <c>true</c> the response will be terminated.</param>
+        </member>
+        <member name="M:HttpResponseExtensions.SetFileNotFound(System.Web.HttpResponse)">
+            <summary>
+              Returns a 404 to the client and ends the response.
+            </summary>
+            <param name = "response">The HttpResponse to perform on.</param>
+        </member>
+        <member name="M:HttpResponseExtensions.SetFileNotFound(System.Web.HttpResponse,System.Boolean)">
+            <summary>
+              Returns a 404 to the client and optionally ends the response.
+            </summary>
+            <param name = "response">The HttpResponse to perform on.</param>
+            <param name = "endResponse">If set to <c>true</c> the response will be terminated.</param>
+        </member>
+        <member name="M:HttpResponseExtensions.SetInternalServerError(System.Web.HttpResponse)">
+            <summary>
+              Returns a 500 to the client and ends the response.
+            </summary>
+            <param name = "response">The HttpResponse to perform on.</param>
+        </member>
+        <member name="M:HttpResponseExtensions.SetInternalServerError(System.Web.HttpResponse,System.Boolean)">
+            <summary>
+              Returns a 500 to the client and optionally ends the response.
+            </summary>
+            <param name = "response">The HttpResponse to perform on.</param>
+            <param name = "endResponse">If set to <c>true</c> the response will be terminated.</param>
+        </member>
+        <member name="M:HttpResponseExtensions.SetStatus(System.Web.HttpResponse,System.Int32,System.String,System.Boolean)">
+            <summary>
+              Set the specified HTTP status code and description and optionally ends the response.
+            </summary>
+            <param name = "response">The HttpResponse to perform on.</param>
+            <param name = "code">The status code.</param>
+            <param name = "description">The status description.</param>
+            <param name = "endResponse">If set to <c>true</c> the response will be terminated.</param>
+        </member>
+        <member name="T:ControlExtensions">
+            <summary>
+              Extensions for ASP.NET Controls
+            </summary>
+        </member>
+        <member name="M:ControlExtensions.FindControl``1(System.Web.UI.Control,System.String)">
+            <summary>
+              Performs a typed search of a control within the current naming container.
+            </summary>
+            <typeparam name = "T">The control type</typeparam>
+            <param name = "control">The parent control / naming container to search within.</param>
+            <param name = "id">The id of the control to be found.</param>
+            <returns>The found control</returns>
+        </member>
+        <member name="M:ControlExtensions.FindControl``1(System.Web.UI.Control,System.Func{``0,System.Boolean})">
+            <summary>
+              Finds the control.
+            </summary>
+            <typeparam name = "T"></typeparam>
+            <param name = "control">The root control.</param>
+            <param name = "comparison">The comparison.</param>
+            <returns>The T</returns>
+        </member>
+        <member name="M:ControlExtensions.FindControlRecursive(System.Web.UI.Control,System.String)">
+            <summary>
+              Finds a control by its ID recursively
+            </summary>
+            <param name = "control">The root parent control.</param>
+            <param name = "id">The id of the control to be found.</param>
+            <returns>The found control</returns>
+        </member>
+        <member name="M:ControlExtensions.FindControlRecursive``1(System.Web.UI.Control,System.String)">
+            <summary>
+              Finds a control by its ID recursively
+            </summary>
+            <typeparam name = "T">The control type</typeparam>
+            <param name = "control">The root parent control.</param>
+            <param name = "id">The id of the control to be found.</param>
+            <returns>The found control</returns>
+        </member>
+        <member name="M:ControlExtensions.GetParent``1(System.Web.UI.Control)">
+            <summary>
+              Returns the first matching parent control.
+            </summary>
+            <typeparam name = "T">The typ of the requested parent control.</typeparam>
+            <param name = "control">The control to start the search on.</param>
+            <returns>The found control</returns>
+        </member>
+        <member name="M:ControlExtensions.GetChildControlsByType``1(System.Web.UI.Control)">
+            <summary>
+              Returns all direct child controls matching to the supplied type.
+            </summary>
+            <typeparam name = "T"></typeparam>
+            <param name = "control">The control.</param>
+            <returns></returns>
+            <example>
+              <code>
+                foreach(var textControl in this.GetChildControlsByType&lt;ITextControl&gt;()) {
+                textControl.Text = "...";
+                }
+              </code>
+            </example>
+        </member>
+        <member name="M:ControlExtensions.SetVisibility(System.Web.UI.Control,System.Web.UI.Control[])">
+            <summary>
+              Sets the visibility of one or more controls
+            </summary>
+            <param name = "control">The root control.</param>
+            <param name = "controls">The controls to be set visible.</param>
+        </member>
+        <member name="M:ControlExtensions.SetVisibility(System.Web.UI.Control,System.Boolean,System.Web.UI.Control[])">
+            <summary>
+              Sets the visibility of one or more controls
+            </summary>
+            <param name = "control">The root control.</param>
+            <param name = "visible">if set to <c>true</c> [visible].</param>
+            <param name = "controls">The controls to be set visible.</param>
+        </member>
+        <member name="M:ControlExtensions.SetVisibility(System.Web.UI.Control,System.String[])">
+            <summary>
+              Sets the visibility of one or more controls
+            </summary>
+            <param name = "control">The root control.</param>
+            <param name = "controlIDs">The control IDs.</param>
+        </member>
+        <member name="M:ControlExtensions.SetVisibility(System.Web.UI.Control,System.Boolean,System.String[])">
+            <summary>
+              Sets the visibility of one or more controls
+            </summary>
+            <param name = "control">The root control.</param>
+            <param name = "visible">if set to <c>true</c> [visible].</param>
+            <param name = "controlIDs">The control IDs.</param>
+        </member>
+        <member name="M:ControlExtensions.SetVisibility(System.Web.UI.Control,System.Predicate{System.Web.UI.Control},System.Web.UI.Control[])">
+            <summary>
+              Sets the visibility of one or more controls
+            </summary>
+            <param name = "control">The root control.</param>
+            <param name = "condition">The condition.</param>
+            <param name = "controls">The controls to be set visible.</param>
+        </member>
+        <member name="M:ControlExtensions.SetVisibility(System.Web.UI.Control,System.Predicate{System.Web.UI.Control},System.String[])">
+            <summary>
+              Sets the visibility of one or more controls
+            </summary>
+            <param name = "control">The root control.</param>
+            <param name = "condition">The condition.</param>
+            <param name = "controlIDs">The control IDs.</param>
+        </member>
+        <member name="M:ControlExtensions.SwitchVisibility(System.Web.UI.Control,System.Web.UI.Control,System.Web.UI.Control)">
+            <summary>
+              Switches the visibility of two controls.
+            </summary>
+            <param name = "control">The root control.</param>
+            <param name = "visible">The visible control.</param>
+            <param name = "notVisible">The not visible control.</param>
+        </member>
+        <member name="T:HttpListenerContextExtensions">
+            <summary>
+              Extension methods for HttpListenerContext
+            </summary>
+        </member>
+        <member name="M:HttpListenerContextExtensions.GetResponseStream(System.Net.HttpListenerContext,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+              Prepares a response-stream using compression-, caching- and buffering-settings
+            </summary>
+            <param name = "context">The context</param>
+            <param name = "allowZip">set to true in case you want to honor the compression-http-headers</param>
+            <param name = "buffered">set to true in case you want a BufferedStream</param>
+            <param name = "allowCache">set to false in case you want to set the no-cache-http-headers</param>
+            <returns>the stream to write you stuff to</returns>
+            <remarks>
+              Contributed by blaumeister, http://www.codeplex.com/site/users/view/blaumeiser
+            </remarks>
+        </member>
+    </members>
+</doc>

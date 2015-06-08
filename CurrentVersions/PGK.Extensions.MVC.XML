@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PGK.Extensions.MVC</name>
+    </assembly>
+    <members>
+        <member name="M:RouteExtensions.GetRouteName(System.Web.Routing.Route)">
+            <summary>
+             Get the name of the route
+            </summary>
+            <param name="route"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RouteExtensions.GetRouteName(System.Web.Routing.RouteData)">
+            <summary>
+             Get the name of the route
+            </summary>
+            <param name="routeData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RouteExtensions.GetRouteName(System.Web.Routing.RouteValueDictionary)">
+            <summary>
+             Get the name of the route
+            </summary>
+            <param name="routeValues"></param>
+            <returns></returns>
+             <example>
+             	<code>
+            			var route = routes.Map("rName", "url");
+            			route.GetRouteName();
+            		</code>
+             </example>
+        </member>
+        <member name="M:RouteExtensions.SetRouteName(System.Web.Routing.Route,System.String)">
+            <summary>
+             Set the name of a route
+            </summary>
+            <param name="route">The route</param>
+            <param name="routeName">the route name</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+             <example>
+             	<code>
+            		routes.MapRoute("rName", "{controller}/{action}").SetRouteName("rName");
+            		</code>
+             </example>
+        </member>
+        <member name="M:RouteExtensions.Map(System.Web.Routing.RouteCollection,System.String,System.String,System.Object,System.Object,System.String[])">
+            <summary>
+             Create routes for which I can retrieve the route name
+            </summary>
+            <param name="routes"></param>
+            <param name="name"></param>
+            <param name="url"></param>
+            <param name="defaults"></param>
+            <param name="constraints"></param>
+            <param name="namespaces"></param>
+            <returns></returns>
+             <example>
+             	<code>
+             		var route = routes.Map("rName", "url");
+            			route.GetRouteName();
+            			
+            			//within a controller
+            			string routeName = RouteData.GetRouteName();
+             	</code>
+             </example>
+        </member>
+        <member name="T:HTMLHelperExtensions">
+            <summary>
+             A bunch of HTML helper extensions
+            </summary>
+        </member>
+        <member name="M:HTMLHelperExtensions.ImageLink(System.Web.Mvc.HtmlHelper,System.String,System.String,System.String,System.String,System.Object,System.Object,System.Object)">
+            <summary>
+             Returns an HTML image element for the given image options
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="imgSrc">Image source</param>
+            <param name="alt">Image alt text</param>
+            <param name="actionName">Link action name</param>
+            <param name="controllerName">Link controller name</param>
+            <param name="routeValues">Link route values</param>
+            <param name="htmlAttributes">Link html attributes</param>
+            <param name="imgHtmlAttributes">Image html attributes</param>
+            <returns>MvcHtmlString</returns>
+             <remarks>
+             	Contributed by Michael T, http://about.me/MichaelTran
+             </remarks>
+        </member>
+        <member name="M:HTMLHelperExtensions.Image(System.Web.Mvc.HtmlHelper,System.String,System.String,System.Object)">
+            <summary>
+             Returns an HTML image element for the given source and alt text.
+            </summary>
+            <param name="helper"></param>
+            <param name="src"></param>
+            <param name="alt"></param>
+            <param name="htmlAttributes"></param>
+            <returns>MvcHtmlString</returns>
+             <remarks>
+             	Contributed by Michael T, http://about.me/MichaelTran
+             </remarks>
+        </member>
+        <member name="M:HTMLHelperExtensions.Label(System.Web.Mvc.HtmlHelper,System.String,System.String,System.Object)">
+            <summary>
+            Returns an HTML label element for the given target and text.
+            </summary>
+            <param name="helper"></param>
+            <param name="target"></param>
+            <param name="text"></param>
+            <param name="htmlAttributes"></param>
+            <returns></returns>
+            <remarks>
+            	Contributed by Michael T, http://about.me/MichaelTran
+            </remarks>
+        </member>
+        <member name="T:HttpSessionStateBaseExtensions">
+            <summary>
+              Extensions classes for the ASP.NET Session State class
+            </summary>
+        </member>
+        <member name="M:HttpSessionStateBaseExtensions.Get``1(System.Web.HttpSessionStateBase,System.String,``0)">
+            <summary>
+              Returns a typed value from the ASP.NET MVC session state or the provided default value
+            </summary>
+            <typeparam name="TValue">The generic type to be returned</typeparam>
+            <param name = "state">The session state.</param>
+            <param name = "key">The session state key.</param>
+            <param name = "defaultValue">The default value to be returned.</param>
+            <returns>The session state value.</returns>
+            <example>
+              <code>
+                public List&lt;string&gt; StringValues {
+                get { return this.Session.Ensure&lt;List&lt;string&gt;&gt;("StringValues"); }
+                set { this.ViewState.Set("StringValues", value); }
+                }
+              </code>
+            </example>
+            <remarks>
+            	Contributed by Michael T, http://about.me/MichaelTran
+            </remarks>
+        </member>
+        <member name="M:HttpSessionStateBaseExtensions.Ensure``1(System.Web.HttpSessionStateBase,System.String)">
+            <summary>
+              Ensures a specific key to be either already in the ASP.NET MVC session state or to be newly created
+            </summary>
+            <typeparam name = "T">The generic type to be returned</typeparam>
+            <param name = "state">The session state.</param>
+            <param name = "key">The session state key.</param>
+            <returns>The session state value.</returns>
+            <example>
+              <code>
+                public List&lt;string&gt; StringValues {
+                get { return this.Session.Ensure&lt;List&lt;string&gt;&gt;("StringValues"); }
+                set { this.ViewState.Set("StringValues", value); }
+                }
+              </code>
+            </example>
+            <remarks>
+            	Contributed by Michael T, http://about.me/MichaelTran
+            </remarks>
+        </member>
+        <member name="M:HttpSessionStateBaseExtensions.Set(System.Web.HttpSessionStateBase,System.String,System.Object)">
+            <summary>
+              Sets the specified value into the ASP.NET MVC session state.
+            </summary>
+            <param name = "state">The session state.</param>
+            <param name = "key">The session state key.</param>
+            <param name = "value">The new session state value.</param>
+            <example>
+              <code>
+                public List&lt;string&gt; StringValues {
+                get { return this.Session.Ensure&lt;List&lt;string&gt;&gt;("StringValues"); }
+                set { this.ViewState.Set("StringValues", value); }
+                }
+              </code>
+            </example>
+            <remarks>
+            	Contributed by Michael T, http://about.me/MichaelTran
+            </remarks>
+        </member>
+    </members>
+</doc>
