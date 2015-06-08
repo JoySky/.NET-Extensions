@@ -2,6 +2,8 @@
 .NET Extensions Methods Library for C# and VB.NET (ASP.NET, MVC, SL, WPF, EF)
 The .NET Extensions project provides the missing piece that you always expected to be part of the Framework Class Library.
 
+Copy from http://dnpextensions.codeplex.com/
+
 The project literally contains hundreds of extension methods for well known FCL data types. You can just add a reference and start using them today.
 
 Follow me on Facebook @ http://facebook.com/Kochen.mit.Patrick
